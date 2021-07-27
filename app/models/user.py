@@ -7,9 +7,12 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(40), nullable=False, unique=True)
-    email = db.Column(db.String(255), nullable=False, unique=True)
-    hashed_password = db.Column(db.String(255), nullable=False)
+    username = db.Column(db.Varchar(40), nullable=False, unique=True)
+    email = db.Column(db.Varchar(255), nullable=False, unique=True)
+    hashed_password = db.Column(db.Varchar(255), nullable=False)
+    appointment = db.relationship("Appointment", back_populates="user")
+    service = db.relationship("Service", back_populates="user")
+    review = db.relationship("Review", back_populates="user")
 
     @property
     def password(self):
