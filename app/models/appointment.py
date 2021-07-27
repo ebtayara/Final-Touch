@@ -14,7 +14,7 @@ class Appointment(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'full_name': self.username,
+            'full_name': self.full_name,
             'email': self.email,
             'address': self.address,
             'phone_number': self.phone_number,
