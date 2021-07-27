@@ -1,6 +1,6 @@
 from .db import db
 
-class User(db.Model):
+class Appointment(db.Model):
     __tablename__ = 'appointments'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -9,6 +9,7 @@ class User(db.Model):
     address = db.Column(db.Varchar)
     phone_number = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user = db.relationship("User", back_populates="appointment")
 
     def to_dict(self):
         return {
