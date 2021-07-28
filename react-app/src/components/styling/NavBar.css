@@ -1,13 +1,15 @@
 .nav {
+
 }
 
 .nav_container {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.33);
+  background-color: rgba(0,0,0,.7);
   padding: 10px;
   border: 2px solid grey;
+  margin-bottom:10px;
 }
 
 .home {
@@ -15,11 +17,11 @@
   font-size: 20px;
   text-decoration: none;
   font-size: 27px;
-  color:black;
+  color:orange;
 }
 
 .signup {
-  color: black;
+  color: white;
   text-decoration: none;
   align-items: center;
   box-sizing: border-box;
@@ -40,7 +42,7 @@
 }
 
 .login {
-  color: black;
+  color: white;
   text-decoration: none;
   align-items: center;
   box-sizing: border-box;

@@ -10,7 +10,7 @@ const NavBar = () => {
         <div className="home_outer_container">
           <div className="home_inner_container">
             <NavLink to='/' exact={true} activeClassName='active' className="home">
-              Home
+              Final Touch
             </NavLink>
           </div>
         </div>
