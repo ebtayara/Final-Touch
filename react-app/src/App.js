@@ -43,6 +43,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
+          {/* <Home /> */}
           <h1>My Home Page</h1>
         </ProtectedRoute>
       </Switch>
