@@ -1,5 +1,8 @@
-.nav {
-
+nav {
+  display: flex;
+  position: fixed;
+  top: 0em;
+  width: 100%;
 }
 
 .nav_container {
