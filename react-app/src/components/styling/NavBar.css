@@ -1,0 +1,62 @@
+.nav {
+
+}
+
+.nav_container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: rgba(0,0,0,.7);
+  padding: 10px;
+  border: 2px solid grey;
+  margin-bottom:10px;
+}
+
+.home {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  text-decoration: none;
+  font-size: 27px;
+  color:orange;
+}
+
+.signup {
+  color: white;
+  text-decoration: none;
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  padding: 0px 36px;
+  height: 48px;
+  min-width: 144px;
+  border-radius: 24px;
+  cursor: pointer;
+  /* background-color: rgb(0, 200, 5); */
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.login {
+  color: white;
+  text-decoration: none;
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  padding: 0px 36px;
+  height: 48px;
+  min-width: 144px;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
