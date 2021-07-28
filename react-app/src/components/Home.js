@@ -4,8 +4,9 @@ import { NavLink } from 'react-router-dom';
 import './styling/Home.css'
 
 const Home = () => {
-
-
+  return (
+    <h1>Behold! The Home Page!</h1>
+  )
 }
 
 export default Home
