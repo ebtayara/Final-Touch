@@ -1,8 +1,8 @@
 //actions
-const APPOINTMENT_DATA = 'appointment/APPOINTMENT_DATA';
-const ADD_APPOINTMENT = 'appointment/ADD_APPOINTMENT';
-const UPDATE_APPOINTMENT = 'appointment/UPDATE_APPOINTMENT';
-const REMOVE_APPOINTMENT = 'appointment/REMOVE_APPOINTMENT';
+const APPOINTMENT_DATA = 'appointments/APPOINTMENT_DATA';
+const ADD_APPOINTMENT = 'appointments/ADD_APPOINTMENT';
+const UPDATE_APPOINTMENT = 'appointments/UPDATE_APPOINTMENT';
+const REMOVE_APPOINTMENT = 'appointments/REMOVE_APPOINTMENT';
 
 //creators
 const appointmentData = (userData) => ({
@@ -26,7 +26,7 @@ const removeAppointment = () => ({
 
 //thunks
 export const getData = (id) => async(dispatch) => {
-    const response = await fetch(`/api/appointment/${id}`)
+    const response = await fetch(`/api/appointments/${id}`)
     if(response.ok) {
         const userAppointmentData = await response.json();
         dispatch(appointmentData(userAppointmentData));
@@ -34,7 +34,7 @@ export const getData = (id) => async(dispatch) => {
 };
 
 export const newAppointment = (full_name, email, address, phone_number) => async(dispatch) => {
-    const response = await fetch('/api/appointment/newAppointment', {
+    const response = await fetch('/api/appointments/new-appointment', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(
@@ -59,7 +59,7 @@ export const newAppointment = (full_name, email, address, phone_number) => async
 };
 
 export const editAppointment = (newFull_Name, newEmail, newAddress, newPhone_Number) => async(dispatch) => {
-    const response = await fetch('/api/appointment/editAppointment', {
+    const response = await fetch('/api/appointments/edit-appointment', {
         method:'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ export const editAppointment = (newFull_Name, newEmail, newAddress, newPhone_Num
 };
 
 export const deleteAppointment = () => async(dispatch) => {
-    const response = await fetch('/api/appointment/deleteAppointment', {
+    const response = await fetch('/api/appointments/delete-appointment', {
         headers: {
             'Content-Type': 'application/json',
         }
