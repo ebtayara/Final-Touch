@@ -33,8 +33,8 @@ export const getData = (id) => async(dispatch) => {
     }
 };
 
-export const addAppointment = (full_name, email, address, phone_number) => async(dispatch) => {
-    const response = await fetch('/api/appointment/addAppointment', {
+export const newAppointment = (full_name, email, address, phone_number) => async(dispatch) => {
+    const response = await fetch('/api/appointment/newAppointment', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(
@@ -58,18 +58,18 @@ export const addAppointment = (full_name, email, address, phone_number) => async
     }
 };
 
-export const updateAppointment = () => async(dispatch) => {
+export const editAppointment = () => async(dispatch) => {
 
 };
 
-export const removeAppointment = () => async(dispatch) => {
-    const response = await fetch('/api/appointment/removeAppointment', {
+export const deleteAppointment = () => async(dispatch) => {
+    const response = await fetch('/api/appointment/deleteAppointment', {
         headers: {
             'Content-Type': 'application/json',
         }
     });
         if(response.ok) {
-            dispatch(removeUser());
+            dispatch(removeAppointment());
     }
 };
 
@@ -87,4 +87,4 @@ export default function appointmentReducer(state = {}, action) {
         default:
             return state;
     }
-}
+};
