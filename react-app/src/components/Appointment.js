@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import {useDispatch, useSelector} from 'react-redux';
 import {addAppointment, updateAppointment, removeAppointment} from '../store/appointment';
@@ -13,6 +13,7 @@ const Appointment = () => {
   const [address, setAddress] = useState('');
   const [phoneNumber, setNumber] = useState('');
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const updateFullName = (e) => {
     setFullName((e.target.value));
@@ -29,6 +30,10 @@ const Appointment = () => {
   const updateNumber = (e) => {
     setNumber((e.target.value));
   };
+
+  if(!user) {
+    history.push('/')
+  }
 
   return (
     <div className='form_outer_container'>
