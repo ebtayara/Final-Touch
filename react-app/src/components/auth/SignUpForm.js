@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import '../styling/SignUpForm.css';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -43,6 +44,7 @@ const SignUpForm = () => {
   }
 
   return (
+  <div className="form_outer_container">
     <form onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
@@ -88,6 +90,7 @@ const SignUpForm = () => {
       </div>
       <button type='submit'>Sign Up</button>
     </form>
+    </div>
   );
 };
 

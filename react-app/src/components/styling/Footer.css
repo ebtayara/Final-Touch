@@ -7,12 +7,12 @@
   position: fixed;
   width: 100%;
   bottom: 0px;
-  color: white;
+  color: black;
   font-weight: bold;
   text-align: center;
   padding: 10px;
   border: 2px solid grey;
-  background-color: rgba(0,0,0,.7);
+  background-color: rgba(255, 140, 0, .7)
 }
 
 .footer {
@@ -32,12 +32,12 @@
 
 .github_icon {
   padding: 10px;
-  color: white;
+  color: black;
   font-size: 40px;
 }
 
 .linkedin_icon {
   padding: 10px;
-  color: white;
+  color: black;
   font-size: 40px;
 }

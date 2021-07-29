@@ -1,12 +1,15 @@
-.nav {
-
+nav {
+  display: flex;
+  position: fixed;
+  top: 0em;
+  width: 100%;
 }
 
 .nav_container {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  background-color: rgba(0,0,0,.7);
+  background-color: rgba(255, 140, 0, .7);
   padding: 10px;
   border: 2px solid grey;
   margin-bottom:10px;
@@ -17,11 +20,12 @@
   font-size: 20px;
   text-decoration: none;
   font-size: 27px;
-  color:orange;
+  color:red;
+  font-weight: bold;
 }
 
 .signup {
-  color: white;
+  color: black;
   text-decoration: none;
   align-items: center;
   box-sizing: border-box;
@@ -42,7 +46,7 @@
 }
 
 .login {
-  color: white;
+  color: black;
   text-decoration: none;
   align-items: center;
   box-sizing: border-box;
