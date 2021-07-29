@@ -58,8 +58,31 @@ export const newAppointment = (full_name, email, address, phone_number) => async
     }
 };
 
-export const editAppointment = () => async(dispatch) => {
-
+export const editAppointment = (newFull_Name, newEmail, newAddress, newPhone_Number) => async(dispatch) => {
+    const response = await fetch('/api/appointment/editAppointment', {
+        method:'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            newFull_Name,
+            newEmail,
+            newAddress,
+            newPhone_Number
+        }),
+    });
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(updateAppointment(data))
+        return null;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
+    }
 };
 
 export const deleteAppointment = () => async(dispatch) => {
@@ -80,8 +103,8 @@ export default function appointmentReducer(state = {}, action) {
             return {userData: action.payload}
         case ADD_APPOINTMENT:
             return {...state, action}
-        // case UPDATE_APPOINTMENT:
-        //     return {...state, action.payload}
+        case UPDATE_APPOINTMENT:
+            return {...state, userData: action.payload}
         case REMOVE_APPOINTMENT:
             return state
         default:
