@@ -31,6 +31,11 @@ const Appointment = () => {
     setNumber((e.target.value));
   };
 
+  const onSubmit = async(e) => {
+    e.preventDefault()
+    await dispatch(newAppointment(full_name, email, address, phone_number))
+  }
+
   if(!user) {
     history.push('/')
   }
@@ -38,7 +43,7 @@ const Appointment = () => {
   return (
     <div className='form_outer_container'>
       <div className='form_inner_container'>
-        <form >
+        <form onSubmit={onSubmit}>
           <div className='name_field'>
             <label>Full Name</label>
             <input
