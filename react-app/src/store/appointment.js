@@ -44,9 +44,11 @@ export const newAppointment = (full_name, email, address, phone_number) => async
             phone_number
         )
     });
+    console.log(full_name, '<<NAME>>-------------------')
     console.log('YO!')
     console.log('RESPONSE FROM THUNK', response)
     if(response.ok) {
+        console.log('RESPONSE IS OK', response.ok)
         const newAppointment = await response.json()
         dispatch(addAppointment(newAppointment));
         return null;

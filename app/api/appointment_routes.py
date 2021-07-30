@@ -22,9 +22,9 @@ def user_appointments(id):
 #grab appointment details
 @appointment_routes.route('/new-appointment', methods=['POST'])
 @login_required
-def edit_appointment():
+def create_appointment():
     form = ScheduleForm()
-    print('*THIS IS FORM!', form)
+    print('THIS IS FORM!', form)
     if form.validate_on_submit():
         print('YO!---------------------')
         appointments = Appointment(

@@ -4,6 +4,6 @@ from wtforms import IntegerField, StringField
 
 class ScheduleForm(FlaskForm):
     full_name = StringField('full_name')
-    email = StringField('email', )
+    email = StringField('email')
     address = StringField('address')
     phone_number = IntegerField('phone_number')
