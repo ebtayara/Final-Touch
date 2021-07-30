@@ -44,6 +44,8 @@ export const newAppointment = (full_name, email, address, phone_number) => async
             phone_number
         )
     });
+    console.log('YO!')
+    console.log('RESPONSE FROM THUNK', response)
     if(response.ok) {
         const newAppointment = await response.json()
         dispatch(addAppointment(newAppointment));
@@ -102,7 +104,7 @@ export default function appointmentReducer(state = {}, action) {
         case APPOINTMENT_DATA:
             return {userData: action.payload}
         case ADD_APPOINTMENT:
-            return {...state, action}
+            return {...state, userData: action.payload}
         case UPDATE_APPOINTMENT:
             return {...state, userData: action.payload}
         case REMOVE_APPOINTMENT:

@@ -24,7 +24,9 @@ def user_appointments(id):
 @login_required
 def edit_appointment():
     form = ScheduleForm()
+    print('*THIS IS FORM!', form)
     if form.validate_on_submit():
+        print('YO!---------------------')
         appointments = Appointment(
             full_name = form.data['full_name'],
             email = form.data['email'],
@@ -37,16 +39,16 @@ def edit_appointment():
     return {}
 
 #edit appointment details
-@appointment_routes.route('/new-appointment', methods=['PUT'])
+@appointment_routes.route('/edit-appointment', methods=['PUT'])
 @login_required
 def edit_appointment():
     form = ScheduleForm()
     if form.validate_on_submit():
         appointments = Appointment(
-            full_name = form.data['newFull_name'],
-            email = form.data['newEmail'],
-            address = form.data['newAddress'],
-            phone_number = form.data['newPhone_number']
+            full_name = form.data['full_name'],
+            email = form.data['email'],
+            address = form.data['address'],
+            phone_number = form.data['phone_number']
       )
         db.session.add(appointments)
         db.session.commit()

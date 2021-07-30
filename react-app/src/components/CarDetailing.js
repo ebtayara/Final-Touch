@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {NavLink, useHistory} from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
 import {useDispatch, useSelector} from 'react-redux';
 import {newAppointment} from '../store/appointment';
 import './styling/CarDetailing.css';
@@ -32,13 +31,15 @@ const CarDetailing = () => {
 
   const onSubmit = async(e) => {
     e.preventDefault()
-    const formDeets = {
-      full_name: fullName,
-      email: email,
-      address: address,
-      phone_number: phoneNumber
-    }
-    const formData = await dispatch(newAppointment(formDeets))
+    // const formDeets = {
+    //   full_name: fullName,
+    //   email: email,
+    //   address: address,
+    //   phone_number: phoneNumber
+    // }
+    console.log('HELLO!')
+    const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber))
+    console.log('*****************', formData)
     if (formData) {
       history.push('/appointments')
     }
