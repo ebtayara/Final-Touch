@@ -1,7 +1,7 @@
-from typing_extensions import Required
 from flask import Blueprint
 from flask_login import login_required
 from app.models import Appointment, db
+from app.forms import ScheduleForm
 
 appointment_routes = Blueprint('appointments', __name__)
 
@@ -23,15 +23,17 @@ def user_appointments(id):
 @appointment_routes.route('/edit-appointment', methods=['PUT'])
 @login_required
 def edit_appointment():
-    # form = grab form from react front
-    if form.validate._on_submit():
-        id.full_name = form.data['new-full_name']
-        id.email = form.data['new-email']
-        id.address = form.data['new-address']
-        id.phone_number = form.data['new-phone_number']
-        db.session.add()
-        db.session.commit()
-        return id.to_dict()
+    form = ScheduleForm()
+    if form.validate_on_submit():
+      appointments = Appointment(
+        full_name = form.data['full_name'],
+        email = form.data['email'],
+        address = form.data['address'],
+        phone_number = form.data['phone_number']
+      )
+      db.session.add()
+      db.session.commit()
+      return appointments.to_dict()
     return {}
 
 @appointment_routes.route('/edit-appointment', methods=['DELETE'])
