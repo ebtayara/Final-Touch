@@ -19,21 +19,38 @@ def user_appointments(id):
     user_appointments = Appointment.query.get(id)
     return user_appointments.to_dict()
 
-#edit appointment details
-@appointment_routes.route('/edit-appointment', methods=['PUT'])
+#grab appointment details
+@appointment_routes.route('/new-appointment', methods=['POST'])
 @login_required
 def edit_appointment():
     form = ScheduleForm()
     if form.validate_on_submit():
-      appointments = Appointment(
-        full_name = form.data['full_name'],
-        email = form.data['email'],
-        address = form.data['address'],
-        phone_number = form.data['phone_number']
+        appointments = Appointment(
+            full_name = form.data['full_name'],
+            email = form.data['email'],
+            address = form.data['address'],
+            phone_number = form.data['phone_number']
       )
-      db.session.add()
-      db.session.commit()
-      return appointments.to_dict()
+        db.session.add(appointments)
+        db.session.commit()
+        return appointments.to_dict()
+    return {}
+
+#edit appointment details
+@appointment_routes.route('/new-appointment', methods=['PUT'])
+@login_required
+def edit_appointment():
+    form = ScheduleForm()
+    if form.validate_on_submit():
+        appointments = Appointment(
+            full_name = form.data['newFull_name'],
+            email = form.data['newEmail'],
+            address = form.data['newAddress'],
+            phone_number = form.data['newPhone_number']
+      )
+        db.session.add(appointments)
+        db.session.commit()
+        return appointments.to_dict()
     return {}
 
 @appointment_routes.route('/edit-appointment', methods=['DELETE'])
