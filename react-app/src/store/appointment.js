@@ -27,6 +27,7 @@ const removeAppointment = () => ({
 //thunks
 export const getData = (id) => async(dispatch) => {
     const response = await fetch(`/api/appointments/${id}`)
+    console.log('APPOINTMENT DATA', response)
     if(response.ok) {
         const userAppointmentData = await response.json();
         dispatch(appointmentData(userAppointmentData));
