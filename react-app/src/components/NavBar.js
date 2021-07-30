@@ -2,8 +2,9 @@ import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
-import './styling/NavBar.css';
 import { login } from '../store/session';
+import { logout } from '../store/session';
+import './styling/NavBar.css';
 
 const NavBar = () => {
 const dispatch = useDispatch();
@@ -12,7 +13,13 @@ const history = useHistory();
 const demoLogin = () => {
     dispatch(login('demo@aa.io', 'password'))
     history.push('/home')
-  }
+  };
+
+const onLogout = async (e) => {
+    await dispatch(logout());
+    history.push('/')
+  };
+
 const auth_nav_bar = useSelector(state => state.session.user)
 
 if (auth_nav_bar) {
@@ -28,7 +35,7 @@ if (auth_nav_bar) {
         </div>
         <div className="logout_outer_container">
           <div className="logout_inner_container">
-            <LogoutButton />
+            <button onClick={onLogout} className='logout'>Logout</button>
           </div>
         </div>
       </div>

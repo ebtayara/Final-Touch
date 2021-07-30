@@ -1,18 +1,18 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { logout } from '../../store/session';
+// import React from 'react';
+// import { useDispatch } from 'react-redux';
+// import { useHistory } from 'react-router-dom';
+// import { logout } from '../../store/session';
 
-const LogoutButton = () => {
-  const dispatch = useDispatch()
-  const history = useHistory()
+// const LogoutButton = () => {
+//   const dispatch = useDispatch()
+//   const history = useHistory()
 
-  const onLogout = async (e) => {
-    await dispatch(logout());
-    history.push('/')
-  };
+//   const onLogout = async (e) => {
+//     await dispatch(logout());
+//     history.push('/')
+//   };
 
-  return <button onClick={onLogout}>Logout</button>;
-};
+//   return <button onClick={onLogout} className='logout'>Logout</button>;
+// };
 
-export default LogoutButton;
+// export default LogoutButton;
