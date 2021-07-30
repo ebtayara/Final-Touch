@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {NavLink, useHistory} from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import {useDispatch, useSelector} from 'react-redux';
-import {addAppointment, updateAppointment, removeAppointment} from '../store/appointment';
+import {newAppointment} from '../store/appointment';
 import './styling/Appointment.css';
 
 const Appointment = () => {
@@ -33,12 +33,21 @@ const Appointment = () => {
 
   const onSubmit = async(e) => {
     e.preventDefault()
-    await dispatch(newAppointment(full_name, email, address, phone_number))
-  }
+    const formDeets = {
+      full_name: fullName,
+      email: email,
+      address: address,
+      phone_number: phoneNumber
+    }
+    const formData = await dispatch(newAppointment(formDeets))
+    if (formData) {
+      history.push('/appointments')
+    }
+  };
 
   if(!user) {
     history.push('/')
-  }
+  };
 
   return (
     <div className='form_outer_container'>
