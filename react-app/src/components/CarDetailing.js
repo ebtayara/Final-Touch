@@ -40,9 +40,9 @@ const CarDetailing = () => {
     console.log('HELLO!')
     const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber))
     console.log('*****************', formData)
-    if (formData) {
+    // if (formData) {
       history.push('/appointments')
-    }
+    // }
   };
 
   if(!user) {

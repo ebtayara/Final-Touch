@@ -38,12 +38,12 @@ export const newAppointment = (full_name, email, address, phone_number) => async
     const response = await fetch('/api/appointments/new-appointment', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(
+        body: JSON.stringify({
             full_name,
             email,
             address,
             phone_number
-        )
+        })
     });
     console.log(full_name, '<<NAME>>-------------------')
     console.log('YO!')
