@@ -8,7 +8,9 @@ import Footer from './components/Footer';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import Splash from './components/Splash';
 import Home from './components/Home';
+import CarDetailing from './components/CarDetailing';
 import Appointment from './components/Appointment';
 import { authenticate } from './store/session';
 
@@ -37,6 +39,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        <Route path='/car-detailing' exact={true}>
+          <CarDetailing />
+        </Route>
         <Route path='/appointments' exact={true}>
           <Appointment />
         </Route>
@@ -46,7 +51,10 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <Route path='/' exact={true} >
+        <Route path='/' exact={true}>
+          <Splash />
+        </Route>
+        <Route path='/home' exact={true}>
           <Home />
         </Route>
       </Switch>

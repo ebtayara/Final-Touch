@@ -27,6 +27,7 @@ const removeAppointment = () => ({
 //thunks
 export const getData = (id) => async(dispatch) => {
     const response = await fetch(`/api/appointments/${id}`)
+    console.log('APPOINTMENT DATA', response)
     if(response.ok) {
         const userAppointmentData = await response.json();
         dispatch(appointmentData(userAppointmentData));
@@ -37,14 +38,18 @@ export const newAppointment = (full_name, email, address, phone_number) => async
     const response = await fetch('/api/appointments/new-appointment', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(
+        body: JSON.stringify({
             full_name,
             email,
             address,
             phone_number
-        )
+        })
     });
+    console.log(full_name, '<<NAME>>-------------------')
+    console.log('YO!')
+    console.log('RESPONSE FROM THUNK', response)
     if(response.ok) {
+        console.log('RESPONSE IS OK', response.ok)
         const newAppointment = await response.json()
         dispatch(addAppointment(newAppointment));
         return null;
@@ -102,7 +107,7 @@ export default function appointmentReducer(state = {}, action) {
         case APPOINTMENT_DATA:
             return {userData: action.payload}
         case ADD_APPOINTMENT:
-            return {...state, action}
+            return {...state, userData: action.payload}
         case UPDATE_APPOINTMENT:
             return {...state, userData: action.payload}
         case REMOVE_APPOINTMENT:

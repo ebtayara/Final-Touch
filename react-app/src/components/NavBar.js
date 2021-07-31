@@ -1,16 +1,47 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
-import './styling/NavBar.css';
 import { login } from '../store/session';
+import { logout } from '../store/session';
+import './styling/NavBar.css';
 
 const NavBar = () => {
 const dispatch = useDispatch();
+const history = useHistory();
+
 const demoLogin = () => {
     dispatch(login('demo@aa.io', 'password'))
-  }
+    history.push('/home')
+  };
+
+const onLogout = async (e) => {
+    await dispatch(logout());
+    history.push('/')
+  };
+
+const auth_nav_bar = useSelector(state => state.session.user)
+
+if (auth_nav_bar) {
   return (
+    <nav>
+      <div className="nav_container">
+        <div className="home_outer_container">
+          <div className="home_inner_container">
+            <NavLink to='/' exact={true} activeClassName='active' className="home">
+              Final Touch
+            </NavLink>
+          </div>
+        </div>
+        <div className="logout_outer_container">
+          <div className="logout_inner_container">
+            <button onClick={onLogout} className='logout'>Logout</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+} else return (
     <nav>
       <div className="nav_container">
         <div className="home_outer_container">
@@ -36,11 +67,6 @@ const demoLogin = () => {
         </div>
         <div>
           <button onClick={(demoLogin)}>Demo User</button>
-        </div>
-        <div className="logout_outer_container">
-          <div className="logout_inner_container">
-            <LogoutButton />
-          </div>
         </div>
       </div>
     </nav>
