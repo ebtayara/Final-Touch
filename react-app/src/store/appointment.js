@@ -109,7 +109,7 @@ export default function appointmentReducer(state = {}, action) {
         case APPOINTMENT_DATA:
             return {appointment: action.payload}
         case ADD_APPOINTMENT:
-            return {...state, appointment: action.payload}
+            return {appointment: action.payload}
         case UPDATE_APPOINTMENT:
             return {...state, appointment: action.payload}
         case REMOVE_APPOINTMENT:

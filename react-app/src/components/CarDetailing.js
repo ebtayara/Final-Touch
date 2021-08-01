@@ -6,6 +6,7 @@ import './styling/CarDetailing.css';
 
 const CarDetailing = () => {
   const user = useSelector(state => state.session.user);
+  // const {app_id} = useParams();
   const appointment = useSelector(state => state.appointmentReducer.appointment);
   const app_id = appointment?.id;
   const [fullName, setFullName] = useState('');
@@ -14,7 +15,7 @@ const CarDetailing = () => {
   const [phoneNumber, setNumber] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
-  // const id = useParams();
+  // console.log(app_id);
 
   const updateFullName = (e) => {
     setFullName((e.target.value));
@@ -44,7 +45,7 @@ const CarDetailing = () => {
     const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber))
     console.log('*****************', formData)
     // if (formData) {
-      history.push(`/confirmation/${app_id}`)
+      history.push(`/appointments/${app_id}`)
     // }
   };
 
