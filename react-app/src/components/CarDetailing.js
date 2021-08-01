@@ -44,7 +44,7 @@ const CarDetailing = () => {
     const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber))
     console.log('*****************', formData)
     // if (formData) {
-      history.push(`/appointments/${app_id}`)
+      history.push(`/confirmation/${app_id}`)
     // }
   };
 

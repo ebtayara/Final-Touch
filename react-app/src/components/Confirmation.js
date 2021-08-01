@@ -2,9 +2,9 @@ import React, {useEffect} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {getData} from '../store/appointment';
-import './styling/Appointment.css';
+import './styling/Confirmation.css';
 
-const Appointment = () => {
+const Confirmation = () => {
   const user = useSelector(state => state.session.user)
   const appointment = useSelector(state => state.appointmentReducer.appointment);
   // const dispatch = useDispatch();
@@ -32,12 +32,11 @@ useEffect(() => {
   return (
     <div className='app_outer_container'>
       <div className='app_inner_container'>
-        <h1>Appointments Page</h1>
-
+        <h1>Confirmation Page</h1>
         {appointment?.email}
       </div>
     </div>
   )
 };
 
-export default Appointment
+export default Confirmation

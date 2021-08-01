@@ -11,6 +11,7 @@ import User from './components/User';
 import Splash from './components/Splash';
 import Home from './components/Home';
 import CarDetailing from './components/CarDetailing';
+import Confirmation from './components/Confirmation';
 import Appointment from './components/Appointment';
 import { authenticate } from './store/session';
 
@@ -41,6 +42,9 @@ function App() {
         </Route>
         <Route path='/car-detailing' exact={true}>
           <CarDetailing />
+        </Route>
+        <Route path='/confirmation/:id' exact={true}>
+          <Confirmation />
         </Route>
         <Route path='/appointments/:id' exact={true}>
           <Appointment />
