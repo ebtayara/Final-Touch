@@ -1,22 +1,20 @@
 import React, {useState, useEffect} from 'react';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {getData, newAppointment} from '../store/appointment';
+import {newAppointment} from '../store/appointment';
 import './styling/CarDetailing.css';
 
 const CarDetailing = () => {
   const user = useSelector(state => state.session.user);
-  const id = user?.id;
+  const appointment = useSelector(state => state.appointmentReducer.appointment);
+  const app_id = appointment?.id;
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [phoneNumber, setNumber] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
-
-  useEffect(() => {
-    dispatch(getData(id))
-}, [dispatch, id])
+  // const id = useParams();
 
   const updateFullName = (e) => {
     setFullName((e.target.value));
@@ -46,7 +44,7 @@ const CarDetailing = () => {
     const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber))
     console.log('*****************', formData)
     // if (formData) {
-      history.push('/appointments')
+      history.push(`/appointments/${app_id}`)
     // }
   };
 

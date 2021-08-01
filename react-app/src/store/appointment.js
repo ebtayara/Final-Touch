@@ -5,18 +5,19 @@ const UPDATE_APPOINTMENT = 'appointments/UPDATE_APPOINTMENT';
 const REMOVE_APPOINTMENT = 'appointments/REMOVE_APPOINTMENT';
 
 //creators
-const appointmentData = (userData) => ({
+const appointmentData = (appointment) => ({
     type: APPOINTMENT_DATA,
-    payload: userData
+    payload: appointment
 });
 
-const addAppointment = () => ({
+const addAppointment = (appointment) => ({
     type: ADD_APPOINTMENT,
+    payload: appointment
 });
 
-const updateAppointment = (userData) => ({
+const updateAppointment = (appointment) => ({
     type: UPDATE_APPOINTMENT,
-    payload: userData
+    payload: appointment
 });
 
 const removeAppointment = () => ({
@@ -106,11 +107,11 @@ export const deleteAppointment = () => async(dispatch) => {
 export default function appointmentReducer(state = {}, action) {
     switch (action.type) {
         case APPOINTMENT_DATA:
-            return {userData: action.payload}
+            return {appointment: action.payload}
         case ADD_APPOINTMENT:
-            return {...state, userData: action.payload}
+            return {...state, appointment: action.payload}
         case UPDATE_APPOINTMENT:
-            return {...state, userData: action.payload}
+            return {...state, appointment: action.payload}
         case REMOVE_APPOINTMENT:
             return state
         default:

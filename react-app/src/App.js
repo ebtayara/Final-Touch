@@ -42,7 +42,7 @@ function App() {
         <Route path='/car-detailing' exact={true}>
           <CarDetailing />
         </Route>
-        <Route path='/appointments' exact={true}>
+        <Route path='/appointments/:id' exact={true}>
           <Appointment />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
