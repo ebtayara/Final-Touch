@@ -1,17 +1,22 @@
-import React, {useState} from 'react';
-import {NavLink, useHistory} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {newAppointment} from '../store/appointment';
+import {getData, newAppointment} from '../store/appointment';
 import './styling/CarDetailing.css';
 
 const CarDetailing = () => {
-  const user = useSelector(state => state.session.user)
+  const user = useSelector(state => state.session.user);
+  const id = user?.id;
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [phoneNumber, setNumber] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
+
+  useEffect(() => {
+    dispatch(getData(id))
+}, [dispatch, id])
 
   const updateFullName = (e) => {
     setFullName((e.target.value));
