@@ -1,5 +1,5 @@
-from flask import Blueprint
-from flask_login import login_required
+from flask import Blueprint, request
+from flask_login import login_required, current_user
 from app.models import Appointment, db
 from app.forms import ScheduleForm
 
@@ -17,6 +17,8 @@ appointment_routes = Blueprint('appointments', __name__)
 @login_required
 def user_appointments(id):
     user_appointments = Appointment.query.get(id)
+    if user_appointments is None:
+        return {}
     return user_appointments.to_dict()
 
 #grab appointment details
@@ -25,13 +27,16 @@ def user_appointments(id):
 def create_appointment():
     form = ScheduleForm()
     print('THIS IS FORM!', form)
+    print(form.validate_on_submit())
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         print('YO!---------------------')
         appointments = Appointment(
             full_name = form.data['full_name'],
             email = form.data['email'],
             address = form.data['address'],
-            phone_number = form.data['phone_number']
+            phone_number = form.data['phone_number'],
+            user_id = current_user.id
       )
         db.session.add(appointments)
         db.session.commit()

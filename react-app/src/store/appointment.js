@@ -35,6 +35,7 @@ export const getData = (id) => async(dispatch) => {
 };
 
 export const newAppointment = (full_name, email, address, phone_number) => async(dispatch) => {
+    phone_number = parseInt(phone_number)
     const response = await fetch('/api/appointments/new-appointment', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
