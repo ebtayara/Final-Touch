@@ -32,6 +32,13 @@ if (auth_nav_bar) {
             </NavLink>
           </div>
         </div>
+        <div className="car_detailing_outer_container">
+          <div className="car_detailing_inner_container">
+            <NavLink to='/car-detailing' exact={true} activeClassName='active' className="car_detailing">
+              Car Detailing
+            </NavLink>
+          </div>
+        </div>
         <div className="logout_outer_container">
           <div className="logout_inner_container">
             <button onClick={onLogout} className='logout'>Logout</button>
