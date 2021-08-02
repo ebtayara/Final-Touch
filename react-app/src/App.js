@@ -12,6 +12,7 @@ import Splash from './components/Splash';
 import Home from './components/Home';
 import CarDetailing from './components/CarDetailing';
 import Appointment from './components/Appointment';
+import EditApp from './components/EditApp';
 import { authenticate } from './store/session';
 
 function App() {
@@ -44,6 +45,9 @@ function App() {
         </Route>
         <Route path='/appointments/:id' exact={true}>
           <Appointment />
+        </Route>
+        <Route path='/appointments/edit/:id' exact={true}>
+          <EditApp />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
