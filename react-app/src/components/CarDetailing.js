@@ -54,6 +54,7 @@ const CarDetailing = () => {
   };
 
   return (
+  <body className='cd_body'>
     <div className='form_outer_container'>
       <div className='form_inner_container'>
         <form onSubmit={onSubmit}>
@@ -103,6 +104,7 @@ const CarDetailing = () => {
         </form>
       </div>
     </div>
+  </body>
   )
 };
 

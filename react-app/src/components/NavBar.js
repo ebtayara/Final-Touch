@@ -27,7 +27,7 @@ if (auth_nav_bar) {
       <div className="nav_container">
         <div className="home_outer_container">
           <div className="home_inner_container">
-            <NavLink to='/' exact={true} activeClassName='active' className="home">
+            <NavLink to='/home' exact={true} activeClassName='active' className="home">
               Final Touch
             </NavLink>
           </div>
