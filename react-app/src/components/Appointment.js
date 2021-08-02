@@ -23,7 +23,7 @@ useEffect(() => {
       console.log(err);
     }
   })();
-}, [id]);
+}, [dispatch, id]);
 
   if(!user) {
     history.push('/')
