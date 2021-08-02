@@ -66,7 +66,7 @@ export const newAppointment = (full_name, email, address, phone_number, history)
     }
 };
 
-export const editAppointment = (newFull_Name, newEmail, newAddress, newPhone_Number, id) => async(dispatch) => {
+export const editAppointment = (newFull_Name, newEmail, newAddress, newPhone_Number, history, id) => async(dispatch) => {
     const response = await fetch(`/api/appointments/edit-appointment/${id}`, {
         method:'PUT',
         headers: {
@@ -82,7 +82,7 @@ export const editAppointment = (newFull_Name, newEmail, newAddress, newPhone_Num
     if (response.ok) {
         const data = await response.json();
         dispatch(updateAppointment(data))
-        return null;
+        return data;
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {

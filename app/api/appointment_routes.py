@@ -31,22 +31,22 @@ def create_appointment():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         print('YO!---------------------')
-        appointments = Appointment(
+        appointment = Appointment(
             full_name = form.data['full_name'],
             email = form.data['email'],
             address = form.data['address'],
             phone_number = form.data['phone_number'],
             user_id = current_user.id
       )
-        db.session.add(appointments)
+        db.session.add(appointment)
         db.session.commit()
-        return appointments.to_dict()
+        return appointment.to_dict()
     return {}
 
 #edit appointment details
 @appointment_routes.route('/edit-appointment/<int:id>', methods=['PUT'])
 @login_required
-def edit_appointment():
+def edit_appointment(id):
     user_appointment = Appointment.query.get(id)
     form = ScheduleForm()
     if form.validate_on_submit():
