@@ -35,18 +35,11 @@ const EditApp = () => {
 
   const onSubmit = async(e) => {
     e.preventDefault()
-    // const formDeets = {
-    //   full_name: fullName,
-    //   email: email,
-    //   address: address,
-    //   phone_number: phoneNumber
-    // }
-    console.log('HELLO!')
     const formData = await dispatch(editAppointment(fullName, email, address, phoneNumber, history, id))
     console.log('*****************', formData)
-    // if (formData) {
-      // history.push(`/appointments/${app_id}`)
-    // }
+    if (formData) {
+      history.push(`/appointments/${id}`)
+    }
   };
 
   if(!user) {
