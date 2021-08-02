@@ -52,7 +52,7 @@ const Appointment = () => {
         <div className='changes_outer_container'>
           <div className='changes_inner_container'>
             <div>
-            <NavLink to='/edit' exact={true} activeClassName='active' className='edit'>
+            <NavLink to='/edit/:id' exact={true} activeClassName='active' className='edit'>
               Edit
             </NavLink>
             <button type='submit' onClick={deletePantry} className='cancel'>Cancel</button>

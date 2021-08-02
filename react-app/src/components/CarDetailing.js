@@ -104,6 +104,6 @@ const CarDetailing = () => {
       </div>
     </div>
   )
-}
+};
 
 export default CarDetailing
