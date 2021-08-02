@@ -50,14 +50,27 @@ def edit_appointment():
     user_appointment = Appointment.query.get(id)
     form = ScheduleForm()
     if form.validate_on_submit():
-        user_appointment = Appointment(
-            full_name = form.data['full_name'],
-            email = form.data['email'],
-            address = form.data['address'],
-            phone_number = form.data['phone_number']
-      )
-        db.session.commit()
-        return user_appointment.to_dict()
+        user_appointment.full_name = form.data['full_name'],
+        user_appointment.email = form.data['email'],
+        user_appointment.address = form.data['address'],
+        user_appointment.phone_number = form.data['phone_number']
+    db.session.commit()
+    return user_appointment.to_dict()
+
+# @appointment_routes.route('/edit-appointment/<int:id>', methods=['PUT'])
+# @login_required
+# def edit_appointment():
+#     user_appointment = Appointment.query.get(id)
+#     form = ScheduleForm()
+#     if form.validate_on_submit():
+#         user_appointment = Appointment(
+#             full_name = form.data['full_name'],
+#             email = form.data['email'],
+#             address = form.data['address'],
+#             phone_number = form.data['phone_number']
+#       )
+#         db.session.commit()
+#         return user_appointment.to_dict()
 
 @appointment_routes.route('/edit-appointment/<int:id>', methods=['DELETE'])
 @login_required
