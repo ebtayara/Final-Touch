@@ -8,6 +8,7 @@ const CarDetailing = () => {
   const user = useSelector(state => state.session.user);
   // const {app_id} = useParams();
   const appointment = useSelector(state => state.appointmentReducer.appointment);
+  console.log('APP STATE*****', appointment)
   const app_id = appointment?.id;
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -15,7 +16,7 @@ const CarDetailing = () => {
   const [phoneNumber, setNumber] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
-  // console.log(app_id);
+  console.log('APP ID ****', app_id);
 
   const updateFullName = (e) => {
     setFullName((e.target.value));
@@ -42,10 +43,10 @@ const CarDetailing = () => {
     //   phone_number: phoneNumber
     // }
     console.log('HELLO!')
-    const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber))
+    const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber, history))
     console.log('*****************', formData)
     // if (formData) {
-      history.push(`/appointments/${app_id}`)
+      // history.push(`/appointments/${app_id}`)
     // }
   };
 

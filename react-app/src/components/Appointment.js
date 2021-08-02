@@ -14,7 +14,7 @@ const Appointment = () => {
   // console.log(id)
   // console.log(appointment)
 
-  const deletePantry = async(e) => {
+  const cancelAppointment = async(e) => {
       e.preventDefault()
       await dispatch(deleteAppointment(id))
       history.push(`/car-detailing`)
@@ -52,10 +52,10 @@ const Appointment = () => {
         <div className='changes_outer_container'>
           <div className='changes_inner_container'>
             <div>
-            <NavLink to='/edit/:id' exact={true} activeClassName='active' className='edit'>
+            <NavLink to={`/edit/${id}`} exact={true} activeClassName='active' className='edit'>
               Edit
             </NavLink>
-            <button type='submit' onClick={deletePantry} className='cancel'>Cancel</button>
+            <button type='submit' onClick={cancelAppointment} className='cancel'>Cancel</button>
             </div>
           </div>
         </div>

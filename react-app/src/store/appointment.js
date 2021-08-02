@@ -35,7 +35,7 @@ export const getData = (id) => async(dispatch) => {
     }
 };
 
-export const newAppointment = (full_name, email, address, phone_number) => async(dispatch) => {
+export const newAppointment = (full_name, email, address, phone_number, history) => async(dispatch) => {
     phone_number = parseInt(phone_number)
     const response = await fetch('/api/appointments/new-appointment', {
         method: 'POST',
@@ -54,6 +54,7 @@ export const newAppointment = (full_name, email, address, phone_number) => async
         console.log('RESPONSE IS OK', response.ok)
         const newAppointment = await response.json()
         dispatch(addAppointment(newAppointment));
+        history.push(`/appointments/${newAppointment.id}`);
         return null;
     } else if(response.status < 500) {
         const data = await response.json();
@@ -65,8 +66,8 @@ export const newAppointment = (full_name, email, address, phone_number) => async
     }
 };
 
-export const editAppointment = (newFull_Name, newEmail, newAddress, newPhone_Number) => async(dispatch) => {
-    const response = await fetch('/api/appointments/edit-appointment', {
+export const editAppointment = (newFull_Name, newEmail, newAddress, newPhone_Number, id) => async(dispatch) => {
+    const response = await fetch(`/api/appointments/edit-appointment/${id}`, {
         method:'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -104,7 +105,7 @@ export const deleteAppointment = () => async(dispatch) => {
 };
 
 //reducer
-export default function appointmentReducer(state = {}, action) {
+export default function appointmentReducer(state = {appointment:null}, action) {
     switch (action.type) {
         case APPOINTMENT_DATA:
             return {appointment: action.payload}

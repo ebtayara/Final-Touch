@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {newAppointment} from '../store/appointment';
+import {editAppointment} from '../store/appointment';
 import './styling/EditApp.css';
 
 const EditApp = () => {
   const user = useSelector(state => state.session.user);
   // const {app_id} = useParams();
-  const appointment = useSelector(state => state.appointmentReducer.appointment);
-  const app_id = appointment?.id;
+  // const appointment = useSelector(state => state.appointmentReducer.appointment);
+  // const app_id = appointment?.id;
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
@@ -42,10 +42,10 @@ const EditApp = () => {
     //   phone_number: phoneNumber
     // }
     console.log('HELLO!')
-    const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber))
+    const formData = await dispatch(editAppointment(fullName, email, address, phoneNumber, history))
     console.log('*****************', formData)
     // if (formData) {
-      history.push(`/appointments/${app_id}`)
+      // history.push(`/appointments/${app_id}`)
     // }
   };
 
