@@ -1,5 +1,6 @@
 //actions
 const APPOINTMENT_DATA = 'appointments/APPOINTMENT_DATA';
+const APPOINTMENTS_DATA = 'appointments/APPOINTMENTS_DATA'
 const ADD_APPOINTMENT = 'appointments/ADD_APPOINTMENT';
 const UPDATE_APPOINTMENT = 'appointments/UPDATE_APPOINTMENT';
 const REMOVE_APPOINTMENT = 'appointments/REMOVE_APPOINTMENT';
@@ -8,6 +9,11 @@ const REMOVE_APPOINTMENT = 'appointments/REMOVE_APPOINTMENT';
 const appointmentData = (appointment) => ({
     type: APPOINTMENT_DATA,
     payload: appointment
+});
+
+const appointmentsData = (appointments) => ({
+    type: APPOINTMENTS_DATA,
+    payload: appointments
 });
 
 const addAppointment = (appointment) => ({
@@ -32,6 +38,15 @@ export const getData = (id) => async(dispatch) => {
     if(response.ok) {
         const userAppointmentData = await response.json();
         dispatch(appointmentData(userAppointmentData));
+    }
+};
+
+export const getAppointmentData = (user_id) => async(dispatch) => {
+    const response = await fetch(`/api/appointments/${user_id}`)
+    console.log('ALL APPOINTMENT DATA', response)
+    if(response.ok) {
+        const allUserAppointmentData = await response.json();
+        dispatch(appointmentsData(allUserAppointmentData));
     }
 };
 
@@ -66,17 +81,17 @@ export const newAppointment = (full_name, email, address, phone_number, history)
     }
 };
 
-export const editAppointment = (newFull_Name, newEmail, newAddress, newPhone_Number, history, id) => async(dispatch) => {
+export const editAppointment = (full_name, email, address, phone_number, history, id) => async(dispatch) => {
     const response = await fetch(`/api/appointments/edit-appointment/${id}`, {
         method:'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            newFull_Name,
-            newEmail,
-            newAddress,
-            newPhone_Number
+            full_name,
+            email,
+            address,
+            phone_number
         }),
     });
     if (response.ok) {
@@ -105,12 +120,14 @@ export const deleteAppointment = () => async(dispatch) => {
 };
 
 //reducer
-export default function appointmentReducer(state = {appointment:null}, action) {
+export default function appointmentReducer(state = {appointment:null, appointments:null}, action) {
     switch (action.type) {
         case APPOINTMENT_DATA:
-            return {appointment: action.payload}
+            return {...state, appointment: action.payload}
+        case APPOINTMENTS_DATA:
+            return {...state, appointments: action.payload}
         case ADD_APPOINTMENT:
-            return {appointment: action.payload}
+            return {...state, appointment: action.payload}
         case UPDATE_APPOINTMENT:
             return {...state, appointment: action.payload}
         case REMOVE_APPOINTMENT:
