@@ -39,10 +39,17 @@ if (auth_nav_bar) {
             </NavLink>
           </div>
         </div>
-        <div className="car_detailing_outer_container">
-          <div className="car_detailing_inner_container">
+        <div className="appointments_outer_container">
+          <div className="appointments_inner_container">
             <NavLink to='/appointments' exact={true} activeClassName='active' className="car_detailing">
               Appointments
+            </NavLink>
+          </div>
+        </div>
+        <div className="reviews_outer_container">
+          <div className="reviews_inner_container">
+            <NavLink to='/reviews' exact={true} activeClassName='active' className="car_detailing">
+              Reviews
             </NavLink>
           </div>
         </div>
