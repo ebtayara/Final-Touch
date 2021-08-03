@@ -1,22 +1,29 @@
 //actions
 const APPOINTMENT_DATA = 'appointments/APPOINTMENT_DATA';
+const APPOINTMENTS_DATA = 'appointments/APPOINTMENTS_DATA'
 const ADD_APPOINTMENT = 'appointments/ADD_APPOINTMENT';
 const UPDATE_APPOINTMENT = 'appointments/UPDATE_APPOINTMENT';
 const REMOVE_APPOINTMENT = 'appointments/REMOVE_APPOINTMENT';
 
 //creators
-const appointmentData = (userData) => ({
+const appointmentData = (appointment) => ({
     type: APPOINTMENT_DATA,
-    payload: userData
+    payload: appointment
 });
 
-const addAppointment = () => ({
+const appointmentsData = (appointments) => ({
+    type: APPOINTMENTS_DATA,
+    payload: appointments
+});
+
+const addAppointment = (appointment) => ({
     type: ADD_APPOINTMENT,
+    payload: appointment
 });
 
-const updateAppointment = (userData) => ({
+const updateAppointment = (appointment) => ({
     type: UPDATE_APPOINTMENT,
-    payload: userData
+    payload: appointment
 });
 
 const removeAppointment = () => ({
@@ -34,7 +41,17 @@ export const getData = (id) => async(dispatch) => {
     }
 };
 
-export const newAppointment = (full_name, email, address, phone_number) => async(dispatch) => {
+export const getAppointmentData = (user_id) => async(dispatch) => {
+    const response = await fetch(`/api/appointments/all/${user_id}`)
+    console.log('ALL APPOINTMENT DATA', response)
+    if(response.ok) {
+        const allUserAppointmentData = await response.json();
+        dispatch(appointmentsData(allUserAppointmentData));
+    }
+};
+
+export const newAppointment = (full_name, email, address, phone_number, history) => async(dispatch) => {
+    phone_number = parseInt(phone_number)
     const response = await fetch('/api/appointments/new-appointment', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -52,6 +69,7 @@ export const newAppointment = (full_name, email, address, phone_number) => async
         console.log('RESPONSE IS OK', response.ok)
         const newAppointment = await response.json()
         dispatch(addAppointment(newAppointment));
+        history.push(`/appointments/${newAppointment.id}`);
         return null;
     } else if(response.status < 500) {
         const data = await response.json();
@@ -63,23 +81,23 @@ export const newAppointment = (full_name, email, address, phone_number) => async
     }
 };
 
-export const editAppointment = (newFull_Name, newEmail, newAddress, newPhone_Number) => async(dispatch) => {
-    const response = await fetch('/api/appointments/edit-appointment', {
+export const editAppointment = (full_name, email, address, phone_number, history, id) => async(dispatch) => {
+    const response = await fetch(`/api/appointments/edit-appointment/${id}`, {
         method:'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            newFull_Name,
-            newEmail,
-            newAddress,
-            newPhone_Number
+            full_name,
+            email,
+            address,
+            phone_number
         }),
     });
     if (response.ok) {
         const data = await response.json();
         dispatch(updateAppointment(data))
-        return null;
+        return data;
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
@@ -90,8 +108,9 @@ export const editAppointment = (newFull_Name, newEmail, newAddress, newPhone_Num
     }
 };
 
-export const deleteAppointment = () => async(dispatch) => {
-    const response = await fetch('/api/appointments/delete-appointment', {
+export const deleteAppointment = (id, user_id) => async(dispatch) => {
+    const response = await fetch(`/api/appointments/delete-appointment/${id}/${user_id}`, {
+        method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
         }
@@ -102,14 +121,16 @@ export const deleteAppointment = () => async(dispatch) => {
 };
 
 //reducer
-export default function appointmentReducer(state = {}, action) {
+export default function appointmentReducer(state = {appointment:null, appointments:null}, action) {
     switch (action.type) {
         case APPOINTMENT_DATA:
-            return {userData: action.payload}
+            return {...state, appointment: action.payload}
+        case APPOINTMENTS_DATA:
+            return {...state, appointments: action.payload}
         case ADD_APPOINTMENT:
-            return {...state, userData: action.payload}
+            return {...state, appointment: action.payload}
         case UPDATE_APPOINTMENT:
-            return {...state, userData: action.payload}
+            return {...state, appointment: action.payload}
         case REMOVE_APPOINTMENT:
             return state
         default:

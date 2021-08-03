@@ -1,22 +1,21 @@
 import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {newAppointment} from '../store/appointment';
-import './styling/CarDetailing.css';
+import {editAppointment} from '../store/appointment';
+import './styling/EditApp.css';
 
-const CarDetailing = () => {
+const EditApp = () => {
   const user = useSelector(state => state.session.user);
-  // const {app_id} = useParams();
-  const appointment = useSelector(state => state.appointmentReducer.appointment);
-  console.log('APP STATE*****', appointment)
-  const app_id = appointment?.id;
+  const {id} = useParams();
+  // const appointment = useSelector(state => state.appointmentReducer.appointment);
+  // const app_id = appointment?.id;
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [phoneNumber, setNumber] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
-  console.log('APP ID ****', app_id);
+  // console.log(app_id);
 
   const updateFullName = (e) => {
     setFullName((e.target.value));
@@ -36,26 +35,20 @@ const CarDetailing = () => {
 
   const onSubmit = async(e) => {
     e.preventDefault()
-    // const formDeets = {
-    //   full_name: fullName,
-    //   email: email,
-    //   address: address,
-    //   phone_number: phoneNumber
-    // }
-    console.log('HELLO!')
-    const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber, history))
+    const formData = await dispatch(editAppointment(fullName, email, address, phoneNumber, history, id))
     console.log('*****************', formData)
-    // if (formData) {
-      // history.push(`/appointments/${app_id}`)
-    // }
+    if (formData) {
+      history.push(`/appointments/${id}`)
+    }
   };
 
   if(!user) {
     history.push('/')
   };
 
+  console.log('%%%%%%%%%%', fullName)
+  //I want to find a way to have it maintain the previous appointment data in the form fields
   return (
-  <body className='cd_body'>
     <div className='form_outer_container'>
       <div className='form_inner_container'>
         <form onSubmit={onSubmit}>
@@ -105,8 +98,7 @@ const CarDetailing = () => {
         </form>
       </div>
     </div>
-  </body>
   )
 };
 
-export default CarDetailing
+export default EditApp

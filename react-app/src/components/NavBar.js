@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import LogoutButton from './auth/LogoutButton';
 import { login } from '../store/session';
 import { logout } from '../store/session';
 import './styling/NavBar.css';
@@ -28,8 +27,22 @@ if (auth_nav_bar) {
       <div className="nav_container">
         <div className="home_outer_container">
           <div className="home_inner_container">
-            <NavLink to='/' exact={true} activeClassName='active' className="home">
+            <NavLink to='/home' exact={true} activeClassName='active' className="home">
               Final Touch
+            </NavLink>
+          </div>
+        </div>
+        <div className="car_detailing_outer_container">
+          <div className="car_detailing_inner_container">
+            <NavLink to='/car-detailing' exact={true} activeClassName='active' className="car_detailing">
+              Car Detailing
+            </NavLink>
+          </div>
+        </div>
+        <div className="car_detailing_outer_container">
+          <div className="car_detailing_inner_container">
+            <NavLink to='/appointments' exact={true} activeClassName='active' className="car_detailing">
+              Appointments
             </NavLink>
           </div>
         </div>

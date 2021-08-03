@@ -1,3 +1,13 @@
+.splash_body {
+  background-image: url('https://www.detailedimage.com/photos/guide_home_image.jpg');
+  height: 49em;
+  overflow: scroll;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  margin: 0px;
+}
+
 .title_container {
-  margin-top: 100px;
+  margin-top: 5em;
 }
