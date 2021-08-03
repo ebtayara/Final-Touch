@@ -14,6 +14,7 @@ import CarDetailing from './components/CarDetailing';
 import Appointment from './components/Appointment';
 import EditApp from './components/EditApp';
 import Appointments from './components/Appointments';
+import Reviews from './components/Reviews';
 import { authenticate } from './store/session';
 
 function App() {
