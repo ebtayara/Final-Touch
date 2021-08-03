@@ -13,6 +13,7 @@ import Home from './components/Home';
 import CarDetailing from './components/CarDetailing';
 import Appointment from './components/Appointment';
 import EditApp from './components/EditApp';
+import Appointments from './components/Appointments';
 import { authenticate } from './store/session';
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
         </Route>
         <Route path='/edit/:id' exact={true}>
           <EditApp />
+        </Route>
+        <Route path='/appointments' exact={true}>
+          <Appointments />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
