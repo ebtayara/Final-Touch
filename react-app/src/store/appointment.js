@@ -30,7 +30,6 @@ const removeAppointment = () => ({
     type: REMOVE_APPOINTMENT
 });
 
-
 //thunks
 export const getData = (id) => async(dispatch) => {
     const response = await fetch(`/api/appointments/${id}`)
