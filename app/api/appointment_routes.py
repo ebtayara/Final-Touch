@@ -83,11 +83,11 @@ def edit_appointment(id):
 #         db.session.commit()
 #         return user_appointment.to_dict()
 
-@appointment_routes.route('/delete-appointment/<int:id>', methods=['DELETE'])
+@appointment_routes.route('/delete-appointment/<int:id>/<int:user_id>', methods=['DELETE'])
 @login_required
-def delete_appointment(id):
+def delete_appointment(id, user_id):
     user_appointment = Appointment.query.get(id)
     db.session.delete(user_appointment)
     db.session.commit()
-    user_appointments = Appointment.query.all(id)
+    user_appointments = Appointment.query.filter_by(user_id = user_id).all()
     return {'appointments': user_appointments.to_dict() for user_appointments in user_appointments}

@@ -108,8 +108,9 @@ export const editAppointment = (full_name, email, address, phone_number, history
     }
 };
 
-export const deleteAppointment = () => async(dispatch) => {
-    const response = await fetch('/api/appointments/delete-appointment', {
+export const deleteAppointment = (id, user_id) => async(dispatch) => {
+    const response = await fetch(`/api/appointments/delete-appointment/${id}/${user_id}`, {
+        method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
         }

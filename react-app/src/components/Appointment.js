@@ -16,7 +16,7 @@ const Appointment = () => {
 
   const cancelAppointment = async(e) => {
       e.preventDefault()
-      await dispatch(deleteAppointment(id))
+      await dispatch(deleteAppointment(id, user?.id))
       history.push(`/car-detailing`)
 };
 
