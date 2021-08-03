@@ -4,9 +4,6 @@ from app.models import Appointment, db
 from app.forms import ScheduleForm
 
 def validation_errors_to_error_messages(validation_errors):
-    """
-    Simple function that turns the WTForms validation errors into a simple list
-    """
     errorMessages = []
     for field in validation_errors:
         for error in validation_errors[field]:
@@ -16,7 +13,7 @@ def validation_errors_to_error_messages(validation_errors):
 appointment_routes = Blueprint('appointments', __name__)
 
 #locate all appointments
-@appointment_routes.route('/<int:user_id>')
+@appointment_routes.route('/all/<int:user_id>')
 @login_required
 def appointments(user_id):
     appointments = Appointment.query.filter_by(user_id = user_id)

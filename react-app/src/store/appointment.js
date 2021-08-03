@@ -42,7 +42,7 @@ export const getData = (id) => async(dispatch) => {
 };
 
 export const getAppointmentData = (user_id) => async(dispatch) => {
-    const response = await fetch(`/api/appointments/${user_id}`)
+    const response = await fetch(`/api/appointments/all/${user_id}`)
     console.log('ALL APPOINTMENT DATA', response)
     if(response.ok) {
         const allUserAppointmentData = await response.json();
