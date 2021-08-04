@@ -83,6 +83,7 @@ def edit_appointment(id):
 #         db.session.commit()
 #         return user_appointment.to_dict()
 
+#delete appointment
 @appointment_routes.route('/delete-appointment/<int:id>/<int:user_id>', methods=['DELETE'])
 @login_required
 def delete_appointment(id, user_id):

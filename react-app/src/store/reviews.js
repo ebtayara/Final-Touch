@@ -64,7 +64,7 @@ export const editReview = (text_field, review_id) => async (dispatch) => {
 
 
 export const removeReview = (review_id) => async (dispatch) => {
-  const res = await fetch (`/api/reviews/${review_id}`, {
+  const res = await fetch (`/api/reviews/delete/${review_id}`, {
       method: 'DELETE'
   })
   if (res.ok) {

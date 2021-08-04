@@ -33,4 +33,23 @@ def create_review():
     return review.to_dict()
 
 #edit review
-@reviews_routes.route('/')
+@reviews_routes.route('/edit/<int:id>', methods=['PUT'])
+@login_required
+def edit_review(id):
+    new_review = Review.query.get(id)
+    new_review.full_name = current_user.full_name,
+    new_review.email = current_user.email,
+    new_review.address = current_user.address,
+    new_review.phone_number = current_user.phone_number,
+    db.session.commit()
+    return new_review.to_dict()
+
+#delete review
+@reviews_routes.route('/delete/<int:id>/<int:user_id>', methods=['DELETE'])
+@login_required
+def delete_review(id, user_id):
+    user_review = Review.query.get(id)
+    db.session.delete(user_review)
+    db.session.commit()
+    user_reviews = Review.query.filter_by(user_id = user_id).all()
+    return {'reviews': user_reviews.to_dict() for user_reviews in user_reviews}
