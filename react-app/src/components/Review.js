@@ -7,7 +7,7 @@ import './styling/Review.css';
   const Review = () => {
   const user = useSelector(state => state.session.user)
   const review = useSelector(state => state.review.review)
-  const appointment = useSelector(state => state.appointment.appointment)
+  // const appointment = useSelector(state => state.appointment.appointment)
   const {id} = useParams()
   const [text_field, setBody] = useState('')
   const [newReview, setNewReview] = useState('')
@@ -16,16 +16,16 @@ import './styling/Review.css';
   const dispatch = useDispatch()
   const history = useHistory()
 
-    useEffect(() => {
-        dispatch(getReviews(id))
-    }, [dispatch, id]);
+    // useEffect(() => {
+    //     dispatch(getReviews(id))
+    // }, [dispatch, id]);
 
     const userReview = async(e) => {
         e.preventDefault()
         dispatch(createReview({
             text_field: newReview,
             user_id: user.id,
-            app_id: appointment.id
+            app_id: Number(id)
         }))
         setNewReview('')
     };

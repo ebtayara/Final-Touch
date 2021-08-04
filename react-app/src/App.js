@@ -49,7 +49,7 @@ function App() {
         <Route path='/appointments/:id' exact={true}>
           <Appointment />
         </Route>
-        <Route path='/reviews/:id' exact={true}>
+        <Route path='/reviews/appointments/:id' exact={true}>
           <Review />
         </Route>
         <Route path='/edit/:id' exact={true}>

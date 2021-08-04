@@ -1,6 +1,7 @@
 nav {
   display: flex;
-  position: fixed;
+  /* position: fixed; */
+  position: sticky;
   top: 0em;
   width: 100%;
 }

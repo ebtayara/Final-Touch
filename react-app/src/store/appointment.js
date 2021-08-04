@@ -6,7 +6,7 @@ const UPDATE_APPOINTMENT = 'appointments/UPDATE_APPOINTMENT';
 const REMOVE_APPOINTMENT = 'appointments/REMOVE_APPOINTMENT';
 
 //creators
-const appointmentData = (appointment) => ({
+export const appointmentData = (appointment) => ({
     type: APPOINTMENT_DATA,
     payload: appointment
 });

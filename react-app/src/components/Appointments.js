@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useParams, NavLink } from 'react-router-dom';
-// import {getAppointmentData} from '../store/appointment';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import {appointmentData} from '../store/appointment';
 import './styling/Appointments.css';
 
 const Appointments = () => {
 
 const user = useSelector(state => state.session.user);
-// const {id} = useParams();
 const [appointments, setAppointments] = useState();
+const dispatch = useDispatch();
 
 // useEffect(() => {(async() => {
 
@@ -42,15 +42,15 @@ if(appointments) {
               {appointment.full_name}{appointment.email}
               {appointment.address}
               {appointment.phone_number}
+            <div>
+              Tell us about your visit! We appreciate any feedback.
+              <NavLink onClick={() => dispatch(appointmentData(appointment))}to={`/reviews/appointments/${appointment.id}`} exact={true} activeClassName='active' className="review">
+                Leave a review
+              </NavLink>
+            </div>
             </li>
           ))}
         </ul>
-        <div>
-        Tell us about your visit! We appreciate any feedback.
-        <NavLink to='/reviews/:id' exact={true} activeClassName='active' className="review">
-          Leave a review
-        </NavLink>
-        </div>
       </div>
     </body>
   </div>
