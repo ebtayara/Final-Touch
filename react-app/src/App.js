@@ -14,6 +14,7 @@ import CarDetailing from './components/CarDetailing';
 import Appointment from './components/Appointment';
 import EditApp from './components/EditApp';
 import Appointments from './components/Appointments';
+import Review from './components/Review';
 import Reviews from './components/Reviews';
 import { authenticate } from './store/session';
 
@@ -49,13 +50,16 @@ function App() {
           <Appointment />
         </Route>
         <Route path='/reviews/:id' exact={true}>
-          <Reviews />
+          <Review />
         </Route>
         <Route path='/edit/:id' exact={true}>
           <EditApp />
         </Route>
         <Route path='/appointments' exact={true}>
           <Appointments />
+        </Route>
+        <Route path='/reviews' exact={true}>
+          <Reviews />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
