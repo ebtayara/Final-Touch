@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {editAppointment} from '../store/appointment';
@@ -7,7 +7,7 @@ import './styling/EditApp.css';
 const EditApp = () => {
   const user = useSelector(state => state.session.user);
   const {id} = useParams();
-  // const appointment = useSelector(state => state.appointmentReducer.appointment);
+  const appointment = useSelector(state => state.appointmentReducer.appointment);
   // const app_id = appointment?.id;
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -42,10 +42,18 @@ const EditApp = () => {
     }
   };
 
+  useEffect(() => {
+    if (appointment) {
+      setFullName(appointment.full_name)
+      setEmail(appointment.email)
+      setAddress(appointment.address)
+      setNumber(appointment.phone_number)
+    }
+  }, [appointment])
+
   if(!user) {
     history.push('/')
   };
-
   console.log('%%%%%%%%%%', fullName)
   //I want to find a way to have it maintain the previous appointment data in the form fields
   return (
