@@ -6,7 +6,7 @@ import './styling/Reviews.css';
 
 function Reviews() {
   const user = useSelector(state => state.session.user)
-  const reviews = useSelector(state => state.reviews)
+  const reviews = useSelector(state => state.reviewsReducer.reviews)
   const {app_id} = useParams()
   const [text_field, setBody] = useState('')
   const [newReview, setNewReview] = useState('')
