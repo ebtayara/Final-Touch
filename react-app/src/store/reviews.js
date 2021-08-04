@@ -34,6 +34,20 @@ export const getReviews = (app_id) => async (dispatch) => {
   }
 };
 
+export const createReview = (review) => async (dispatch) => {
+  const res = await fetch(`/api/reviews/${review.app_id}`, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(review)
+  })
+  if (res.ok) {
+      const newReview = await res.json()
+      dispatch(addReview(newReview))
+  }
+};
+
 export const editReview = (text_field, review_id) => async (dispatch) => {
   const res = await fetch (`/api/reviews/${review_id}`, {
       method: 'PUT',
@@ -48,19 +62,6 @@ export const editReview = (text_field, review_id) => async (dispatch) => {
   }
 };
 
-export const createReview = (review) => async (dispatch) => {
-  const res = await fetch(`/api/reviews/${review.app_id}`, {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(review)
-  })
-  if (res.ok) {
-      const newReview = await res.json()
-      dispatch(addReview(newReview))
-  }
-};
 
 export const removeReview = (review_id) => async (dispatch) => {
   const res = await fetch (`/api/reviews/${review_id}`, {
