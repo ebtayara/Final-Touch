@@ -6,7 +6,7 @@ import './styling/Review.css';
 
   const Review = () => {
   const user = useSelector(state => state.session.user)
-  const reviews = useSelector(state => state.review.reviews)
+  const review = useSelector(state => state.review.review)
   const appointment = useSelector(state => state.appointment.appointment)
   const {id} = useParams()
   const [text_field, setBody] = useState('')
@@ -45,55 +45,56 @@ import './styling/Review.css';
         }
     };
 
-    const openForm = (review) => {
+    useEffect(() => {
+      if(review) {
+        if (review.id !== formId) {
+          setBody(review.text_field)
+          setFormId(review.id)
+        }
+      }
+    }, [review, formId])
+
+    const openForm = () => {
         setShowForm(true)
-        setBody(review.text_field)
-        setFormId(review.id)
     };
 
   if (!user) history.push('/');
 
   return (
-    <div>
-      {reviews &&
-        Object.values(reviews)?.map(review => {
-          return (
-            <div key={review.id} className='reviews_container'>
-              <div>
-                <div className="review">
-                  <p>{review.User?.full_name}</p>
-                  <p>{review.text_field}</p>
-                  {user.id === review.user_id && (
-                <div>
-                    <div className='edit_btn_container'>
-                    <button className='edit_btn' onClick={() => openForm(review)}>
-                      <i class="fas fa-edit"></i>
-                    </button>
-                    </div>
-                    {showForm && review.id === formId ?
-                        <form onSubmit={(e) => updateReview(review.id, text_field, e)} key={review.id}>
-                          <input type="text" value={text_field} onChange={(e) => setBody(e.target.value)} />
-                          <button className='edit_review' type='submit' onSubmit={(e) => updateReview(review.id, text_field, e)}>edit</button>
-                          <button className='delete_review' onClick={() => deleteReview(review.id)}>delete</button>
-                        </form>
-                        : null}
-                </div>
-                )}
+  <div>
+    {review &&
+      <div key={review.id} className='reviews_container'>
+            <div className="review">
+              <p>{review.User?.full_name}</p>
+              <p>{review.text_field}</p>
             </div>
-        </div>
-    </div>
-    )
-  })}
+              <div className='edit_btn_container'>
+                <button className='edit_btn' onClick={() => openForm(review)}>
+                  <i class="fas fa-edit"></i>
+                </button>
+              </div>
+                {showForm && review.id === formId ?
+                    <form onSubmit={(e) => updateReview(review.id, text_field, e)} key={review.id}>
+                      <input type="text" value={text_field} onChange={(e) => setBody(e.target.value)} />
+                      <button className='edit_review' type='submit' onSubmit={(e) => updateReview(review.id, text_field, e)}>edit</button>
+                      <button className='delete_review' onClick={() => deleteReview(review.id)}>delete</button>
+                    </form>
+                    : null}
+      </div>
+            }
     <div>
+      {!review &&
       <form onSubmit={userReview}>
-          <textarea className='textArea' value={newReview} onChange={(e) => setNewReview(e.target.value)} cols="30" rows="10"></textarea>
+          <div>
+            <textarea className='textArea' value={newReview} onChange={(e) => setNewReview(e.target.value)} cols="30" rows="10"></textarea>
+          </div>
           <div>
               <button className='submitButton' type='submit'>Submit</button>
           </div>
       </form>
+    }
     </div>
   </div>
-  )
-}
+)};
 
 export default Review;

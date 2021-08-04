@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 // import {getAppointmentData} from '../store/appointment';
 import './styling/Appointments.css';
 
@@ -46,7 +46,10 @@ if(appointments) {
           ))}
         </ul>
         <div>
-          
+        Tell us about your visit! We appreciate any feedback.
+        <NavLink to='/reviews/:id' exact={true} activeClassName='active' className="review">
+          Leave a review
+        </NavLink>
         </div>
       </div>
     </body>
