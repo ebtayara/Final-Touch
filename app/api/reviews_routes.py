@@ -14,14 +14,14 @@ def grab_reviews(user_id):
 #get user specific reviews
 @reviews_routes.route('/<int:id>')
 @login_required
-def grab_review(user_id):
+def grab_review(id):
     user_reviews = Review.query.get(id)
     if user_reviews is None:
         return {}
     return user_reviews.to_dict()
 
 #create review
-# @reviews_routes.route('/<int:id>')
-# @login_required
-# def create_review(id):
-#     reviews =
+@reviews_routes.route('/new/<int:id>')
+@login_required
+def create_review():
+    review =

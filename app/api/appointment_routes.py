@@ -28,7 +28,7 @@ def user_appointments(id):
         return {}
     return user_appointments.to_dict()
 
-#grab appointment details
+#create appointment
 @appointment_routes.route('/new-appointment', methods=['POST'])
 @login_required
 def create_appointment():
