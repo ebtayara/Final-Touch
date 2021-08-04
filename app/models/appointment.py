@@ -10,6 +10,7 @@ class Appointment(db.Model):
     phone_number = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     user = db.relationship("User", back_populates="appointment")
+    review = db.relationship("Review", back_populates="appointment")
 
     def to_dict(self):
         return {

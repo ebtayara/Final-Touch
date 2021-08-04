@@ -6,8 +6,9 @@ import './styling/Reviews.css';
 
 function Reviews() {
   const user = useSelector(state => state.session.user)
-  const reviews = useSelector(state => state.reviewsReducer.reviews)
-  const {app_id} = useParams()
+  const reviews = useSelector(state => state.review.reviews)
+  const appointment = useSelector(state => state.appointment.appointment)
+  const {id} = useParams()
   const [text_field, setBody] = useState('')
   const [newReview, setNewReview] = useState('')
   const [showForm, setShowForm] = useState(false)
@@ -16,14 +17,15 @@ function Reviews() {
   const history = useHistory()
 
     useEffect(() => {
-        dispatch(getReviews(app_id))
-    }, [dispatch, app_id]);
+        dispatch(getReviews(id))
+    }, [dispatch, id]);
 
     const userReview = async(e) => {
         e.preventDefault()
         dispatch(createReview({
             text_field: newReview,
             user_id: user.id,
+            app_id: appointment.id
         }))
         setNewReview('')
     };
@@ -39,7 +41,7 @@ function Reviews() {
         let alert = window.confirm('Are you sure you want to delete?')
         if (alert) {
             dispatch(removeReview(review_id))
-            history.push(`/reviews/${app_id}`)
+            history.push(`/reviews/${id}`)
         }
     };
 

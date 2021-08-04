@@ -48,6 +48,9 @@ function App() {
         <Route path='/appointments/:id' exact={true}>
           <Appointment />
         </Route>
+        <Route path='/reviews/:id' exact={true}>
+          <Reviews />
+        </Route>
         <Route path='/edit/:id' exact={true}>
           <EditApp />
         </Route>

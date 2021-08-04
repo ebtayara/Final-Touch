@@ -120,7 +120,7 @@ export const deleteAppointment = (id, user_id) => async(dispatch) => {
 };
 
 //reducer
-export default function appointmentReducer(state = {appointment:null, appointments:null}, action) {
+export default function appointment(state = {appointment:null, appointments:null}, action) {
     switch (action.type) {
         case APPOINTMENT_DATA:
             return {...state, appointment: action.payload}

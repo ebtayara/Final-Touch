@@ -6,8 +6,8 @@ import reviewsReducer from './reviews';
 
 const rootReducer = combineReducers({
   session,
-  appointmentReducer,
-  reviewsReducer
+  appointment: appointmentReducer,
+  review: reviewsReducer
 });
 
 

@@ -7,7 +7,7 @@ import './styling/CarDetailing.css';
 const CarDetailing = () => {
   const user = useSelector(state => state.session.user);
   // const {app_id} = useParams();
-  const appointment = useSelector(state => state.appointmentReducer.appointment);
+  const appointment = useSelector(state => state.appointment.appointment);
   console.log('APP STATE*****', appointment)
   const app_id = appointment?.id;
   const [fullName, setFullName] = useState('');

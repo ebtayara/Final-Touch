@@ -73,7 +73,7 @@ export const removeReview = (review_id) => async (dispatch) => {
 };
 
 //reducer
-export default function reviewsReducer(state = {review:null, reviews:null}, action) {
+export default function reviews(state = {review:null, reviews:null}, action) {
     switch (action.type) {
         case LOAD_REVIEWS:
             return {...state, reviews: action.payload}

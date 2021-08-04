@@ -6,7 +6,7 @@ import './styling/Appointment.css';
 
 const Appointment = () => {
   const user = useSelector(state => state.session.user)
-  const appointment = useSelector(state => state.appointmentReducer.appointment);
+  const appointment = useSelector(state => state.appointment.appointment);
   // const dispatch = useDispatch();
   const history = useHistory();
   const dispatch = useDispatch();

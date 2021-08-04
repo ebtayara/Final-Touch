@@ -7,7 +7,7 @@ import './styling/EditApp.css';
 const EditApp = () => {
   const user = useSelector(state => state.session.user);
   const {id} = useParams();
-  const appointment = useSelector(state => state.appointmentReducer.appointment);
+  const appointment = useSelector(state => state.appointment.appointment);
   // const app_id = appointment?.id;
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
