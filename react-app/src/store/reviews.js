@@ -49,7 +49,7 @@ export const createReview = (review) => async (dispatch) => {
 };
 
 export const editReview = (text_field, review_id) => async (dispatch) => {
-  const res = await fetch (`/api/reviews/${review_id}`, {
+  const res = await fetch (`/api/reviews/edit/${review_id}`, {
       method: 'PUT',
       headers: {
           'Content-Type': 'application/json'

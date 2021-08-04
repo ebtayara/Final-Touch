@@ -8,7 +8,7 @@ function Reviews() {
   const user = useSelector(state => state.session.user)
   const reviews = useSelector(state => state.reviews)
   const {app_id} = useParams()
-  const [textfield, setBody] = useState('')
+  const [text_field, setBody] = useState('')
   const [newReview, setNewReview] = useState('')
   const [showForm, setShowForm] = useState(false)
   const [formId, setFormId] = useState(null)
@@ -19,33 +19,33 @@ function Reviews() {
         dispatch(getReviews(app_id))
     }, [dispatch, app_id]);
 
-    const userReview = async (e) => {
+    const userReview = async(e) => {
         e.preventDefault()
         dispatch(createReview({
-            textfield: newReview,
-            userId: user.id,
+            text_field: newReview,
+            user_id: user.id,
         }))
         setNewReview('')
     };
 
-    const updateReview = async (reviewId, textfield, e) => {
+    const updateReview = async(review_id, text_field, e) => {
         e.preventDefault()
-        await dispatch(editReview(textfield, reviewId))
+        await dispatch(editReview(text_field, review_id))
         setBody('')
         setShowForm(false)
     };
 
-    const deleteReview = (reviewId) => {
+    const deleteReview = (review_id) => {
         let alert = window.confirm('Are you sure you want to delete?')
         if (alert) {
-            dispatch(removeReview(reviewId))
+            dispatch(removeReview(review_id))
             history.push(`/reviews/${app_id}`)
         }
     };
 
     const openForm = (review) => {
         setShowForm(true)
-        setBody(review.textfield)
+        setBody(review.text_field)
         setFormId(review.id)
     };
 
@@ -59,9 +59,9 @@ function Reviews() {
             <div key={review.id} className='reviews_container'>
               <div>
                 <div className="review">
-                  <p>{review.User?.firstName}</p>
-                  <p>{review.textfield}</p>
-                  {user.id === review.userId && (
+                  <p>{review.User?.full_name}</p>
+                  <p>{review.text_field}</p>
+                  {user.id === review.user_id && (
                 <div>
                     <div className='edit_btn_container'>
                     <button className='edit_btn' onClick={() => openForm(review)}>
@@ -69,9 +69,9 @@ function Reviews() {
                     </button>
                     </div>
                     {showForm && review.id === formId ?
-                        <form onSubmit={(e) => updateReview(review.id, textfield, e)} key={review.id}>
-                          <input type="text" value={textfield} onChange={(e) => setBody(e.target.value)} />
-                          <button className='edit_review' type='submit' onSubmit={(e) => updateReview(review.id, textfield, e)}>edit</button>
+                        <form onSubmit={(e) => updateReview(review.id, text_field, e)} key={review.id}>
+                          <input type="text" value={text_field} onChange={(e) => setBody(e.target.value)} />
+                          <button className='edit_review' type='submit' onSubmit={(e) => updateReview(review.id, text_field, e)}>edit</button>
                           <button className='delete_review' onClick={() => deleteReview(review.id)}>delete</button>
                         </form>
                         : null}

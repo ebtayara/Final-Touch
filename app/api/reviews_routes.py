@@ -21,7 +21,16 @@ def grab_review(id):
     return user_reviews.to_dict()
 
 #create review
-@reviews_routes.route('/new/<int:id>')
+@reviews_routes.route('/new/<int:id>', methods=['POST'])
 @login_required
 def create_review():
-    review =
+    review = Review(
+        text_field = current_user.id,
+        user_id = current_user.id
+    )
+    db.session.add(review)
+    db.session.commit()
+    return review.to_dict()
+
+#edit review
+@reviews_routes.route('/')
