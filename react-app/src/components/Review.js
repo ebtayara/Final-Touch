@@ -17,24 +17,26 @@ import './styling/Review.css';
   const dispatch = useDispatch()
   const history = useHistory()
 
-    const userReview = async(e) => {
-        e.preventDefault()
-        dispatch(createReview({
-            text_field: newReview,
-            user_id: user.id,
-            app_id: Number(id)
-        }))
-        setNewReview('')
-    };
+  //need to add another useEffect() to grab the review data again so it doesn't disappear upon refresh
 
-    const updateReview = async(review_id, text_field, e) => {
-        e.preventDefault()
-        await dispatch(editReview(text_field, review_id))
-        setBody('')
-        setShowForm(false)
-    };
+  const userReview = async(e) => {
+      e.preventDefault()
+      dispatch(createReview({
+          text_field: newReview,
+          user_id: user.id,
+          app_id: Number(id)
+      }))
+      setNewReview('')
+  };
 
-    const deleteReview = (review_id) => {
+  const updateReview = async(review_id, text_field, e) => {
+      e.preventDefault()
+      await dispatch(editReview(text_field, review_id))
+      setBody('')
+      setShowForm(false)
+  };
+
+  const deleteReview = (review_id) => {
         let alert = window.confirm('Are you sure you want to delete?')
         if (alert) {
             dispatch(removeReview(review_id))
@@ -43,21 +45,23 @@ import './styling/Review.css';
         }
     };
 
-    useEffect(() => {
+  useEffect(() => {
       if(review) {
-        if (review.app_id !== Number(id)) {
-          //try to tell it what to do if there is a review associated with the app
-          setBody(review.text_field)
+        if(review.app_id !== Number(id)) {
+          review.forEach(user_review => {
+            if(review.app_id === Number(id))
+            setBody(review.text_field)
+          })
         } else {
           setBody(review.text_field)
           setFormId(review.id)
         }
       }
-    }, [review, formId])
+    }, [review, formId]);
 
     const openForm = () => {
         setShowForm(true)
-    };
+  };
 
   if (!user) history.push('/');
 
