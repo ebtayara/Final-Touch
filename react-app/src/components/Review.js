@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams, useHistory} from 'react-router-dom';
-import {createReview, editReview, removeReview} from '../store/reviews';
+import {createReview, editReview, removeReview, addReview} from '../store/reviews';
 import './styling/Review.css';
 
   const Review = () => {
@@ -14,6 +14,7 @@ import './styling/Review.css';
   const [newReview, setNewReview] = useState('')
   const [showForm, setShowForm] = useState(false)
   const [formId, setFormId] = useState(null)
+  const [reviewOk, setReviewOk] = useState(false)
   const dispatch = useDispatch()
   const history = useHistory()
 
@@ -48,16 +49,19 @@ import './styling/Review.css';
   useEffect(() => {
       if(review) {
         if(review.app_id !== Number(id)) {
-          session.user.review.forEach(user_review => {
-            if(user_review.app_id === Number(id))
-            setBody(review.text_field)
-          })
+          user.review.forEach(user_review => {
+            if(user_review.app_id === Number(id)) {
+            setReviewOk(true)
+            dispatch(addReview(user_review))
+            setBody(user_review.text_field)
+          }})
         } else {
+          setReviewOk(true)
           setBody(review.text_field)
           setFormId(review.id)
         }
       }
-    }, [review, formId]);
+    }, [dispatch, review, formId]);
 
     const openForm = () => {
         setShowForm(true)
@@ -67,7 +71,7 @@ import './styling/Review.css';
 
   return (
   <div>
-    {review &&
+    {reviewOk&&
       <div key={review.id} className='reviews_container'>
             <div className="review">
               <p>{review.User?.full_name}</p>

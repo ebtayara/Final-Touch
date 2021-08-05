@@ -10,7 +10,7 @@ const loadReviews = (reviews) => ({
   payload: reviews
 });
 
-const addReview = (review) => ({
+export const addReview = (review) => ({
   type: ADD_REVIEW,
   payload: review
 });
