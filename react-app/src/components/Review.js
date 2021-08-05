@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams, useHistory} from 'react-router-dom';
-import {getReviews, createReview, editReview, removeReview} from '../store/reviews';
+import {createReview, editReview, removeReview} from '../store/reviews';
 import './styling/Review.css';
 
   const Review = () => {
@@ -15,10 +15,6 @@ import './styling/Review.css';
   const [formId, setFormId] = useState(null)
   const dispatch = useDispatch()
   const history = useHistory()
-
-    // useEffect(() => {
-    //     dispatch(getReviews(id))
-    // }, [dispatch, id]);
 
     const userReview = async(e) => {
         e.preventDefault()

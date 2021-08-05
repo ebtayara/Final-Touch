@@ -1,0 +1,9 @@
+.reviews_body {
+  background-image: url('https://storage.googleapis.com/wordpress-www-vendasta/Top-14-Review-Sites-fb.jpg');
+  height: 49em;
+  overflow: scroll;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  margin: 0px;
+}

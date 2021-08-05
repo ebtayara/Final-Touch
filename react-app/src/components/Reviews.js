@@ -21,7 +21,7 @@ console.log(reviews)
 if(reviews) {
 
   return (
-  <div>
+  <div className='reviews_body'>
     <body>
       <div className='title'>
         <h1>Reviews Page</h1>

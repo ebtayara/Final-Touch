@@ -30,7 +30,7 @@ console.log(appointments)
 if(appointments) {
 
   return (
-  <div>
+  <div className='apps_body'>
     <body>
       <div className='title'>
         <h1>Appointments Page</h1>
