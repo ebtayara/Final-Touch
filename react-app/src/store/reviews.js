@@ -10,7 +10,7 @@ const loadReviews = (reviews) => ({
   payload: reviews
 });
 
-const addReview = (review) => ({
+export const addReview = (review) => ({
   type: ADD_REVIEW,
   payload: review
 });
@@ -34,22 +34,8 @@ export const getReviews = (app_id) => async (dispatch) => {
   }
 };
 
-export const editReview = (text_field, review_id) => async (dispatch) => {
-  const res = await fetch (`/api/reviews/${review_id}`, {
-      method: 'PUT',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({text_field})
-  })
-  if (res.ok) {
-      const editedReview = await res.json()
-      dispatch(updateReview(editedReview))
-  }
-};
-
 export const createReview = (review) => async (dispatch) => {
-  const res = await fetch(`/api/reviews/${review.app_id}`, {
+  const res = await fetch(`/api/reviews/new/${review.app_id}`, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -62,8 +48,23 @@ export const createReview = (review) => async (dispatch) => {
   }
 };
 
+export const editReview = (text_field, review_id) => async (dispatch) => {
+  const res = await fetch (`/api/reviews/edit/${review_id}`, {
+      method: 'PUT',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({text_field})
+  })
+  if (res.ok) {
+      const editedReview = await res.json()
+      dispatch(updateReview(editedReview))
+  }
+};
+
+
 export const removeReview = (review_id) => async (dispatch) => {
-  const res = await fetch (`/api/reviews/${review_id}`, {
+  const res = await fetch (`/api/reviews/delete/${review_id}`, {
       method: 'DELETE'
   })
   if (res.ok) {
@@ -72,7 +73,7 @@ export const removeReview = (review_id) => async (dispatch) => {
 };
 
 //reducer
-export default function reviewsReducer(state = {review:null, reviews:null}, action) {
+export default function reviews(state = {review:null, reviews:null}, action) {
     switch (action.type) {
         case LOAD_REVIEWS:
             return {...state, reviews: action.payload}

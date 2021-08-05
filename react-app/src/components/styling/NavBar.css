@@ -1,6 +1,7 @@
 nav {
   display: flex;
-  position: fixed;
+  /* position: fixed; */
+  position: sticky;
   top: 0em;
   width: 100%;
 }
@@ -12,7 +13,7 @@ nav {
   background-color: rgba(255, 140, 0, .7);
   padding: 10px;
   border: 2px solid grey;
-  margin-bottom:10px;
+  /* margin-bottom:10px; */
 }
 
 .home {

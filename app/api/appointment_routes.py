@@ -28,7 +28,7 @@ def user_appointments(id):
         return {}
     return user_appointments.to_dict()
 
-#grab appointment details
+#create appointment
 @appointment_routes.route('/new-appointment', methods=['POST'])
 @login_required
 def create_appointment():
@@ -51,7 +51,7 @@ def create_appointment():
     return {}
 
 #edit appointment details
-@appointment_routes.route('/edit-appointment/<int:id>', methods=['PUT'])
+@appointment_routes.route('/edit-appointment/<int:id>/', methods=['PUT'])
 @login_required
 def edit_appointment(id):
     user_appointment = Appointment.query.get(id)
@@ -83,6 +83,7 @@ def edit_appointment(id):
 #         db.session.commit()
 #         return user_appointment.to_dict()
 
+#delete appointment
 @appointment_routes.route('/delete-appointment/<int:id>/<int:user_id>', methods=['DELETE'])
 @login_required
 def delete_appointment(id, user_id):
