@@ -11,6 +11,7 @@ const Appointment = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const {id} = useParams();
+  // const {user_id} = useParams();
   // console.log(id)
   // console.log(appointment)
 

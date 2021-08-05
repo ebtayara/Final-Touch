@@ -69,11 +69,11 @@ def edit_review(id):
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 #delete review
-@reviews_routes.route('/delete/<int:id>/<int:user_id>', methods=['DELETE'])
+@reviews_routes.route('/delete/<int:id>', methods=['DELETE'])
 @login_required
-def delete_review(id, user_id):
+def delete_review(id):
     user_review = Review.query.get(id)
     db.session.delete(user_review)
     db.session.commit()
-    user_reviews = Review.query.filter_by(user_id = user_id).all()
-    return {'reviews': user_reviews.to_dict() for user_reviews in user_reviews}
+    # user_reviews = Review.query.filter_by(user_id = user_id).all()
+    # return {'reviews': user_reviews.to_dict() for user_reviews in user_reviews}

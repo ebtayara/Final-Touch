@@ -51,7 +51,7 @@ def create_appointment():
     return {}
 
 #edit appointment details
-@appointment_routes.route('/edit-appointment/<int:id>', methods=['PUT'])
+@appointment_routes.route('/edit-appointment/<int:id>/', methods=['PUT'])
 @login_required
 def edit_appointment(id):
     user_appointment = Appointment.query.get(id)

@@ -9,6 +9,7 @@ import './styling/Review.css';
   const review = useSelector(state => state.review.review)
   // const appointment = useSelector(state => state.appointment.appointment)
   const {id} = useParams()
+  // const {user_id} = useParams()
   const [text_field, setBody] = useState('')
   const [newReview, setNewReview] = useState('')
   const [showForm, setShowForm] = useState(false)
@@ -38,6 +39,7 @@ import './styling/Review.css';
         if (alert) {
             dispatch(removeReview(review_id))
             history.push(`/reviews/${id}`)
+            // history.push(`/reviews/${id}/${user_id}`)
         }
     };
 
