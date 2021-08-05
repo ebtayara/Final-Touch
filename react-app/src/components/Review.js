@@ -46,6 +46,9 @@ import './styling/Review.css';
     useEffect(() => {
       if(review) {
         if (review.app_id !== Number(id)) {
+          //try to tell it what to do if there is a review associated with the app
+          setBody(review.text_field)
+        } else {
           setBody(review.text_field)
           setFormId(review.id)
         }
