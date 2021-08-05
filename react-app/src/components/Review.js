@@ -45,7 +45,7 @@ import './styling/Review.css';
 
     useEffect(() => {
       if(review) {
-        if (review.id !== formId) {
+        if (review.app_id !== Number(id)) {
           setBody(review.text_field)
           setFormId(review.id)
         }
