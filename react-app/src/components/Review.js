@@ -38,7 +38,7 @@ import './styling/Review.css';
         let alert = window.confirm('Are you sure you want to delete?')
         if (alert) {
             dispatch(removeReview(review_id))
-            history.push(`/reviews/${id}`)
+            history.push(`/appointments`)
             // history.push(`/reviews/${id}/${user_id}`)
         }
     };

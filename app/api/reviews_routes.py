@@ -56,9 +56,11 @@ def create_review(id):
 @reviews_routes.route('/edit/<int:id>', methods=['PUT'])
 @login_required
 def edit_review(id):
+    print('************IN EDIT ROUTE***************')
     user_review = Review.query.get(id)
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print('FORM DATA HERE ->>', form.data)
     if form.validate_on_submit():
         user_review.text_field = form.data['text_field'],
         # user_review.user_id = current_user.id,
@@ -75,5 +77,5 @@ def delete_review(id):
     user_review = Review.query.get(id)
     db.session.delete(user_review)
     db.session.commit()
-    # user_reviews = Review.query.filter_by(user_id = user_id).all()
-    # return {'reviews': user_reviews.to_dict() for user_reviews in user_reviews}
+    user_reviews = Review.query.filter_by(user_id = user_id).all()
+    return {'reviews': user_reviews.to_dict() for user_reviews in user_reviews}
