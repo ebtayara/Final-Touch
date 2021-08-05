@@ -80,8 +80,8 @@ export const newAppointment = (full_name, email, address, phone_number, history)
     }
 };
 
-export const editAppointment = (full_name, email, address, phone_number, history, id, user_id) => async(dispatch) => {
-    const response = await fetch(`/api/appointments/edit-appointment/${id}/${user_id}`, {
+export const editAppointment = (full_name, email, address, phone_number, history, id) => async(dispatch) => {
+    const response = await fetch(`/api/appointments/edit-appointment/${id}`, {
         method:'PUT',
         headers: {
             'Content-Type': 'application/json'
