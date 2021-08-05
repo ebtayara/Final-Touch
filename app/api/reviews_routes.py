@@ -3,6 +3,13 @@ from flask_login import login_required, current_user
 from app.models import Review, db
 from app.forms import ReviewForm
 
+def validation_errors_to_error_messages(validation_errors):
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+
 reviews_routes = Blueprint('reviews', __name__)
 
 #get all reviews
@@ -49,13 +56,17 @@ def create_review(id):
 @reviews_routes.route('/edit/<int:id>', methods=['PUT'])
 @login_required
 def edit_review(id):
-    new_review = Review.query.get(id)
-    new_review.full_name = current_user.full_name,
-    new_review.email = current_user.email,
-    new_review.address = current_user.address,
-    new_review.phone_number = current_user.phone_number,
-    db.session.commit()
-    return new_review.to_dict()
+    user_review = Review.query.get(id)
+    form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        user_review.text_field = form.data['text_field'],
+        user_review.user_id = current_user.id,
+        user_review.app_id = form.data['app_id']
+        db.session.commit()
+        return user_review.to_dict()
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 #delete review
 @reviews_routes.route('/delete/<int:id>/<int:user_id>', methods=['DELETE'])
