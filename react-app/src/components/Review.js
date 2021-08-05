@@ -48,8 +48,8 @@ import './styling/Review.css';
   useEffect(() => {
       if(review) {
         if(review.app_id !== Number(id)) {
-          review.forEach(user_review => {
-            if(review.app_id === Number(id))
+          session.user.review.forEach(user_review => {
+            if(user_review.app_id === Number(id))
             setBody(review.text_field)
           })
         } else {
