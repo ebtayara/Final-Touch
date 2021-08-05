@@ -61,8 +61,8 @@ def edit_review(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user_review.text_field = form.data['text_field'],
-        user_review.user_id = current_user.id,
-        user_review.app_id = form.data['app_id']
+        # user_review.user_id = current_user.id,
+        # user_review.app_id = form.data['app_id']
         db.session.commit()
         return user_review.to_dict()
     else:
