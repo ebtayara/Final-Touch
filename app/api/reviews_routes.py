@@ -1,11 +1,12 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import Review, db
+from app.forms import ReviewForm
 
 reviews_routes = Blueprint('reviews', __name__)
 
 #get all reviews
-@reviews_routes.route('/all/<int:id>')
+@reviews_routes.route('/all/<int:user_id>')
 @login_required
 def grab_reviews(user_id):
     reviews = Review.query.filter_by(user_id = user_id)
@@ -23,14 +24,26 @@ def grab_review(id):
 #create review
 @reviews_routes.route('/new/<int:id>', methods=['POST'])
 @login_required
-def create_review():
-    review = Review(
-        text_field = current_user.id,
-        user_id = current_user.id
-    )
-    db.session.add(review)
-    db.session.commit()
-    return review.to_dict()
+def create_review(id):
+    form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        review = Review(
+            text_field = form.data['text_field'],
+            user_id = current_user.id,
+            app_id = form.data['app_id']
+      )
+        db.session.add(review)
+        db.session.commit()
+        return review.to_dict()
+    return {}
+    # review = Review(
+    #     text_field = current_user.id,
+    #     user_id = current_user.id
+    # )
+    # db.session.add(review)
+    # db.session.commit()
+    # return review.to_dict()
 
 #edit review
 @reviews_routes.route('/edit/<int:id>', methods=['PUT'])
