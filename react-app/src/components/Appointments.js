@@ -32,28 +32,30 @@ if(appointments) {
   return (
   <div className='apps_body'>
     <body>
-      <div className='title'>
+      <div className='app_title'>
         <h1>Appointments Page</h1>
       </div>
+    <div className='appointments_container'>
       <div className='appointments'>
         <ul>
           {appointments.map(appointment => (
-            <li key={user.id}>
+            <li key={user.id} className='app_details'>
               {appointment.full_name}{appointment.email}
               {appointment.address}
               {appointment.phone_number}
             <div>
-              Tell us about your visit! We appreciate any feedback.
-              <NavLink onClick={() => dispatch(appointmentData(appointment))}to={`/reviews/appointments/${appointment.id}`} exact={true} activeClassName='active' className="review">
-                Leave a review
+              Tell us about your visit! We appreciate any
+              <NavLink onClick={() => dispatch(appointmentData(appointment))}to={`/reviews/appointments/${appointment.id}`} exact={true} activeClassName='active' className="review_btn">
+                feedback
               </NavLink>
             </div>
             </li>
           ))}
         </ul>
       </div>
-    </body>
-  </div>
+    </div>
+  </body>
+</div>
     )
   }
   return null

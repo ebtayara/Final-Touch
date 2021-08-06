@@ -7,3 +7,51 @@
   width: 100%;
   margin: 0px;
 }
+
+.appointments_container {
+  display: flex;
+}
+
+.appointments {
+  /* background: black; */
+}
+
+.app_details {
+  box-sizing: border-box;
+  background: black;
+  color: white;
+  margin: inherit;
+  text-decoration: none;
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  min-width: 70%;
+  border-radius: 24px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.review_btn {
+  color: red;
+  text-decoration: none;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  min-width: 144px;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.app_title {
+  display: flex;
+  margin-left: 25em;
+}
