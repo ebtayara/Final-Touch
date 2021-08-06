@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import Review, db
+from app.models import Review, User, db
 from app.forms import ReviewForm
 
 def validation_errors_to_error_messages(validation_errors):
@@ -73,9 +73,16 @@ def edit_review(id):
 #delete review
 @reviews_routes.route('/delete/<int:id>', methods=['DELETE'])
 @login_required
-def delete_review(id):
-    user_review = Review.query.get(id)
+def delete_review(user_id):
+    user_review = Review.query.get(user_id)
     db.session.delete(user_review)
+    print('******USER REVIEW*****', user_review)
     db.session.commit()
-    user_reviews = Review.query.filter_by(id = id).all()
-    return {'reviews': user_reviews.to_dict() for user_reviews in user_reviews}
+    # user_reviews = Review.query.filter(Review.user_id == user_id).all()
+    # user_reviews = Review.query.filter_by(user_id = user_id).all()
+    user_reviews = Review.query.filter_by(user_id = user_id)
+    print('*****CURRENT USER******', current_user)
+    # user = User.query.get(current_user.id)
+    # return {'reviews': user.to_dict() for  }
+    # return {'reviews': user.review}
+    return {'reviews': [user_reviews.to_dict() for user_reviews in user_reviews]}
