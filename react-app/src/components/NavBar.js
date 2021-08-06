@@ -86,7 +86,7 @@ if (auth_nav_bar) {
           </div>
         </div>
         <div>
-          <button onClick={(demoLogin)}>Demo User</button>
+          <button onClick={(demoLogin)} className='demo'>Demo User</button>
         </div>
       </div>
     </nav>

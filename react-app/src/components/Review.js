@@ -70,7 +70,8 @@ import './styling/Review.css';
   if (!user) history.push('/');
 
   return (
-  <div>
+  <div className='reviews_outer_container'>
+    <body className='review_body'>
     {reviewOk&&
       <div key={review.id} className='reviews_container'>
             <div className="review">
@@ -103,7 +104,8 @@ import './styling/Review.css';
       </form>
     }
     </div>
-  </div>
+  </body>
+</div>
 )};
 
 export default Review;

@@ -36,36 +36,40 @@ const Appointment = () => {
   };
 
   return (
-    <div className='app_outer_container'>
-      <div className='app_inner_container'>
-        <h1>Confirmation Page</h1>
-        <div>
-        We appreciate you wanting to visit! An appointment for {appointment?.full_name}
-        </div>
-        <div>
-        has been booked, and a confirmation will eventually be programmed to be
-        sent to {appointment?.email}.
-        <div>
-        Likewise, a text reminder will also eventually
-        be sent to {appointment?.phone_number} an hour beforehand.
-        </div>
-        </div>
-        <div>
-        You can also dial 'insert # here' to have us schedule an in-house visit
-        to {appointment?.address}.
-        </div>
-        <div className='changes_outer_container'>
-          <div className='changes_inner_container'>
-            <div>
-            <NavLink to={`/edit/${id}`} exact={true} activeClassName='active' className='edit'>
-              Edit
-            </NavLink>
-            <button type='submit' onClick={cancelAppointment} className='cancel'>Cancel</button>
+  <div>
+    <body className='appointment_body'>
+      <div className='app_outer_container'>
+        <div className='app_inner_container'>
+          <h1>Confirmation Page</h1>
+          <div>
+          We appreciate you wanting to visit! An appointment for {appointment?.full_name}
+          </div>
+          <div>
+          has been booked, and a confirmation will eventually be programmed to be
+          sent to {appointment?.email}.
+          <div>
+          Likewise, a text reminder will also eventually
+          be sent to {appointment?.phone_number} an hour beforehand.
+          </div>
+          </div>
+          <div>
+          You can also dial 'insert # here' to have us schedule an in-house visit
+          to {appointment?.address}.
+          </div>
+          <div className='changes_outer_container'>
+            <div className='changes_inner_container'>
+              <div>
+              <NavLink to={`/edit/${id}`} exact={true} activeClassName='active' className='edit'>
+                Edit
+              </NavLink>
+              <button type='submit' onClick={cancelAppointment} className='cancel'>Cancel</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </body>
+  </div>
   )
 };
 
