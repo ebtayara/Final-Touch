@@ -77,5 +77,5 @@ def delete_review(id):
     user_review = Review.query.get(id)
     db.session.delete(user_review)
     db.session.commit()
-    user_reviews = Review.query.filter_by(user_id = user_id).all()
+    user_reviews = Review.query.filter_by(id = id).all()
     return {'reviews': user_reviews.to_dict() for user_reviews in user_reviews}
