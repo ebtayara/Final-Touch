@@ -1,3 +1,19 @@
-/* .app_outer_container{
-  margin-top: 5em;
-} */
+.app_outer_container{
+  /* background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.usatoday.com%2Fstory%2Fdriveon%2F2013%2F12%2F01%2Fpaul-walker-fast-furious-cars%2F3795115%2F&psig=AOvVaw0L8TwWMiECxl3KNHAd20R5&ust=1628346871999000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJD4xvnOnPICFQAAAAAdAAAAABAE');
+  height: 49em;
+  overflow: scroll;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  margin: 0px; */
+}
+
+.appointment_body {
+  background-image: url('https://www.motortrend.com/uploads/sites/5/2021/06/011-fast-and-furious-ford-escort-rs1600.jpg');
+  height: 49em;
+  overflow: scroll;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  margin: 0px;
+}

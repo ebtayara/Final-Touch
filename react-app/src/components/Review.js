@@ -70,7 +70,8 @@ import './styling/Review.css';
   if (!user) history.push('/');
 
   return (
-  <div>
+  <div className='reviews_outer_container'>
+    <body className='review_body'>
     {reviewOk&&
       <div key={review.id} className='reviews_container'>
             <div className="review">
@@ -79,7 +80,7 @@ import './styling/Review.css';
             </div>
               <div className='edit_btn_container'>
                 <button className='edit_btn' onClick={() => openForm(review)}>
-                  <i class="fas fa-edit"></i>
+                  <i className="fas fa-edit"></i>
                 </button>
               </div>
                 {showForm && review.id === formId ?
@@ -103,7 +104,8 @@ import './styling/Review.css';
       </form>
     }
     </div>
-  </div>
+  </body>
+</div>
 )};
 
 export default Review;
