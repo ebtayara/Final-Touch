@@ -80,7 +80,7 @@ import './styling/Review.css';
             </div>
               <div className='edit_btn_container'>
                 <button className='edit_btn' onClick={() => openForm(review)}>
-                  <i class="fas fa-edit"></i>
+                  <i className="fas fa-edit"></i>
                 </button>
               </div>
                 {showForm && review.id === formId ?
