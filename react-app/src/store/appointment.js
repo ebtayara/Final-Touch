@@ -76,7 +76,7 @@ export const newAppointment = (full_name, email, address, phone_number, history)
         return data.errors;
         }
     } else {
-        return ['An error occurred. Please try again.']
+        return ['Fields must contain a valid entry']
     }
 };
 
@@ -103,7 +103,7 @@ export const editAppointment = (full_name, email, address, phone_number, history
             return data.errors;
         }
     } else {
-        return ['An error occurred. Please try again.']
+        return ['Name is required']
     }
 };
 

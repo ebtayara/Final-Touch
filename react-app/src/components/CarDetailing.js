@@ -14,6 +14,7 @@ const CarDetailing = () => {
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [phoneNumber, setNumber] = useState('');
+  const [errors, setErrors] = useState([]);
   const dispatch = useDispatch();
   const history = useHistory();
   console.log('APP ID ****', app_id);
@@ -45,6 +46,9 @@ const CarDetailing = () => {
     console.log('HELLO!')
     const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber, history))
     console.log('*****************', formData)
+    if(formData) {
+      setErrors(formData)
+    }
     // if (formData) {
       // history.push(`/appointments/${app_id}`)
     // }
@@ -55,10 +59,15 @@ const CarDetailing = () => {
   };
 
   return (
-  <body className='cd_body'>
+  <div className='cd_body'>
     <div className='form_outer_container'>
       <div className='form_inner_container'>
         <form onSubmit={onSubmit}>
+          <div>
+          {errors.map((error, i) => (
+          <div key={i}>{error}</div>
+        ))}
+          </div>
           <div className='name_field'>
             <label>Full Name</label>
             <input
@@ -105,7 +114,7 @@ const CarDetailing = () => {
         </form>
       </div>
     </div>
-  </body>
+  </div>
   )
 };
 
