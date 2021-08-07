@@ -14,7 +14,7 @@ useEffect(() => {
     setReviews(responseData.reviews)
   }
   getReviews();
-}, []);
+}, [user.id]);
 
 console.log(reviews)
 
@@ -22,7 +22,7 @@ if(reviews) {
 
   return (
   <div className='reviews_body'>
-    <body>
+    <div>
       <div className='title'>
         <h1>Reviews Page</h1>
       </div>
@@ -38,7 +38,7 @@ if(reviews) {
 
         </div>
       </div>
-    </body>
+    </div>
   </div>
     )
   }

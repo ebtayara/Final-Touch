@@ -7,6 +7,7 @@ import './styling/Appointments.css';
 const Appointments = () => {
 
 const user = useSelector(state => state.session.user);
+// const appointment = useSelector(state => state.appointment.appointment)
 const [appointments, setAppointments] = useState();
 const dispatch = useDispatch();
 
@@ -23,7 +24,7 @@ useEffect(() => {
     setAppointments(responseData.appointments)
   }
   grabData();
-}, []);
+}, [user.id]);
 
 console.log(appointments)
 
@@ -31,15 +32,16 @@ if(appointments) {
 
   return (
   <div className='apps_body'>
-    <body>
+    <div>
       <div className='app_title'>
         <h1>Appointments Page</h1>
       </div>
     <div className='appointments_container'>
       <div className='appointments'>
+        {user &&
         <ul>
           {appointments.map(appointment => (
-            <li key={user.id} className='app_details'>
+            <li key={appointment.id} className='app_details'>
               {appointment.full_name}{appointment.email}
               {appointment.address}
               {appointment.phone_number}
@@ -52,9 +54,10 @@ if(appointments) {
             </li>
           ))}
         </ul>
+        }
       </div>
     </div>
-  </body>
+  </div>
 </div>
     )
   }

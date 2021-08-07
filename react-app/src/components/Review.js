@@ -61,7 +61,7 @@ import './styling/Review.css';
           setFormId(review.id)
         }
       }
-    }, [dispatch, review, formId]);
+    }, [dispatch, review, formId, id, user.review]);
 
     const openForm = () => {
         setShowForm(true)
@@ -71,7 +71,7 @@ import './styling/Review.css';
 
   return (
   <div className='reviews_outer_container'>
-    <body className='review_body'>
+    <div className='review_body'>
     {reviewOk&&
       <div key={review.id} className='reviews_container'>
             <div className="review">
@@ -104,7 +104,7 @@ import './styling/Review.css';
       </form>
     }
     </div>
-  </body>
+  </div>
 </div>
 )};
 

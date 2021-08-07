@@ -37,7 +37,7 @@ const Appointment = () => {
 
   return (
   <div>
-    <body className='appointment_body'>
+    <div className='appointment_body'>
       <div className='app_outer_container'>
         <div className='app_inner_container'>
           <h1>Confirmation Page</h1>
@@ -68,7 +68,7 @@ const Appointment = () => {
           </div>
         </div>
       </div>
-    </body>
+    </div>
   </div>
   )
 };
