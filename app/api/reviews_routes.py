@@ -17,6 +17,7 @@ reviews_routes = Blueprint('reviews', __name__)
 @login_required
 def grab_reviews(user_id):
     reviews = Review.query.filter_by(user_id = user_id)
+    print(reviews)
     return {'reviews': [reviews.to_dict() for reviews in reviews]}
 
 #get user specific reviews
@@ -73,16 +74,18 @@ def edit_review(id):
 #delete review
 @reviews_routes.route('/delete/<int:id>', methods=['DELETE'])
 @login_required
-def delete_review(user_id):
-    user_review = Review.query.get(user_id)
-    db.session.delete(user_review)
+def delete_review(id):
+    user_review = Review.query.get(id)
     print('******USER REVIEW*****', user_review)
+    db.session.delete(user_review)
     db.session.commit()
     # user_reviews = Review.query.filter(Review.user_id == user_id).all()
     # user_reviews = Review.query.filter_by(user_id = user_id).all()
-    user_reviews = Review.query.filter_by(user_id = user_id)
-    print('*****CURRENT USER******', current_user)
+    # user_reviews = Review.query.filter_by(user_id = user_id)
+    user_reviews = current_user.review
+    # print('*****CURRENT USER******', current_user)
     # user = User.query.get(current_user.id)
     # return {'reviews': user.to_dict() for  }
     # return {'reviews': user.review}
+    # return {'reviews': [user_reviews.to_dict() for user_reviews in user_reviews]}
     return {'reviews': [user_reviews.to_dict() for user_reviews in user_reviews]}

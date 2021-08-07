@@ -46,6 +46,8 @@ import './styling/Review.css';
         }
     };
 
+    console.log(review)
+
   useEffect(() => {
       if(review) {
         if(review.app_id !== Number(id)) {
@@ -72,7 +74,7 @@ import './styling/Review.css';
   return (
   <div className='reviews_outer_container'>
     <body className='review_body'>
-    {reviewOk&&
+    {reviewOk &&
       <div key={review.id} className='reviews_container'>
             <div className="review">
               <p>{review.User?.full_name}</p>

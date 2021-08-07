@@ -35,6 +35,7 @@ if(appointments) {
       <div className='app_title'>
         <h1>Appointments Page</h1>
       </div>
+    {user &&
     <div className='appointments_container'>
       <div className='appointments'>
         <ul>
@@ -54,6 +55,7 @@ if(appointments) {
         </ul>
       </div>
     </div>
+    }
   </body>
 </div>
     )
