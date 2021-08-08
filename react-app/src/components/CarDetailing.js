@@ -17,7 +17,7 @@ const CarDetailing = () => {
   const [errors, setErrors] = useState([]);
   const dispatch = useDispatch();
   const history = useHistory();
-  console.log('APP ID ****', app_id);
+  // console.log('APP ID ****', app_id);
 
   const updateFullName = (e) => {
     setFullName((e.target.value));
