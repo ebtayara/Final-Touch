@@ -49,7 +49,7 @@ export const getAppointmentData = (user_id) => async(dispatch) => {
     }
 };
 
-export const newAppointment = (full_name, email, address, phone_number, history) => async(dispatch) => {
+export const newAppointment = (full_name, email, address, phone_number) => async(dispatch) => {
     phone_number = parseInt(phone_number)
     const response = await fetch('/api/appointments/new-appointment', {
         method: 'POST',
@@ -68,7 +68,7 @@ export const newAppointment = (full_name, email, address, phone_number, history)
         console.log('RESPONSE IS OK', response.ok)
         const newAppointment = await response.json()
         dispatch(addAppointment(newAppointment));
-        history.push(`/appointments/${newAppointment.id}`);
+        // history.push(`/appointments/${newAppointment.id}`);
         return null;
     } else if(response.status < 500) {
         const data = await response.json();

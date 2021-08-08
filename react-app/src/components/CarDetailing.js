@@ -44,14 +44,13 @@ const CarDetailing = () => {
     //   phone_number: phoneNumber
     // }
     console.log('HELLO!')
-    const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber, history))
+    const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber))
     console.log('*****************', formData)
     if(formData) {
       setErrors(formData)
+    } else {
+      history.push(`/appointments/${app_id}`)
     }
-    // if (formData) {
-      // history.push(`/appointments/${app_id}`)
-    // }
   };
 
   if(!user) {
@@ -65,7 +64,7 @@ const CarDetailing = () => {
         <form onSubmit={onSubmit}>
           <div>
           {errors.map((error, i) => (
-          <div key={i}>{error}</div>
+          <div key={i}>{error.slice(error.indexOf(':') + 1)}</div>
         ))}
           </div>
           <div className='name_field'>

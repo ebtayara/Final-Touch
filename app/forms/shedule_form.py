@@ -1,18 +1,11 @@
 from flask_wtf import FlaskForm
 from wtforms import IntegerField, StringField
-from wtforms.validators import DataRequired, ValidationError
+from wtforms import validators
+from wtforms.validators import DataRequired, ValidationError, Email, email_validator
 # from app.models import Appointment
 
-
-# def username_exists(form, field):
-#     # Checking if username is already in use
-#     username = field.data
-#     user = User.query.filter(User.username == username).first()
-#     if user:
-#         raise ValidationError('Username is already in use.')
-
 class ScheduleForm(FlaskForm):
-    full_name = StringField('full_name', validators=[DataRequired('name is required')])
-    email = StringField('email')
+    full_name = StringField('full_name', validators=[DataRequired('Name is required')])
+    email = StringField('email', validators=[DataRequired('Email is required'), Email()])
     address = StringField('address')
     phone_number = IntegerField('phone_number')
