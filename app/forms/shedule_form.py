@@ -6,6 +6,6 @@ from wtforms.validators import DataRequired, ValidationError, Email, email_valid
 
 class ScheduleForm(FlaskForm):
     full_name = StringField('full_name', validators=[DataRequired('Name is required')])
-    email = StringField('email', validators=[DataRequired('Email is required'), Email()])
-    address = StringField('address')
-    phone_number = IntegerField('phone_number')
+    email = StringField('email', validators=[DataRequired('Email is required'), Email(email_validator)])
+    address = StringField('address', validators=[DataRequired('Address is required')])
+    phone_number = IntegerField('phone_number', validators=[DataRequired('Number is required')])
