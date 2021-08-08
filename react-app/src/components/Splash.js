@@ -6,7 +6,7 @@ const Splash = () => {
   <div className='splash_body'>
     <div className='title_outer_container'>
       <div className='title_container'>
-        <h1>Boring Splash</h1>
+        <h1 className='title'>Welcome!</h1>
       </div>
     </div>
   </div>
