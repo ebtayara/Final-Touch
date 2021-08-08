@@ -102,7 +102,7 @@ const CarDetailing = () => {
             <input
               type='integer'
               name='phone_number'
-              placeholder='Enter 10 Digit Number'
+              placeholder='Enter Number Here'
               onChange={updateNumber}
               value={phoneNumber}
             ></input>
