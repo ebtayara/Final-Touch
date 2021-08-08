@@ -45,7 +45,7 @@ const CarDetailing = () => {
     // }
     console.log('HELLO!')
     const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber))
-    console.log('*****************', formData)
+    // console.log('*****************', formData)
     if(formData) {
       setErrors(formData)
     } else {

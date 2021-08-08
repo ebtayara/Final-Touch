@@ -15,6 +15,7 @@ import './styling/Review.css';
   const [showForm, setShowForm] = useState(false)
   const [formId, setFormId] = useState(null)
   const [reviewOk, setReviewOk] = useState(false)
+  const [errors, setErrors] = useState([]);
   const dispatch = useDispatch()
   const history = useHistory()
 
@@ -52,8 +53,12 @@ import './styling/Review.css';
           user.review.forEach(user_review => {
             if(user_review.app_id === Number(id)) {
             setReviewOk(true)
-            dispatch(addReview(user_review))
-            setBody(user_review.text_field)
+            const reviewDeets = dispatch(addReview(user_review))
+            if(reviewDeets) {
+              setErrors(reviewDeets)
+            } else {
+              setBody(user_review.text_field)
+            }
           }})
         } else {
           setReviewOk(true)
@@ -85,6 +90,11 @@ import './styling/Review.css';
               </div>
                 {showForm && review.id === formId ?
                     <form onSubmit={(e) => updateReview(review.id, text_field, e)} key={review.id}>
+                      <div>
+                      {errors.map((error, i) => (
+                      <div key={i}>{error.slice(error.indexOf(':') + 1)}</div>
+                      ))}
+                      </div>
                       <input type="text" value={text_field} onChange={(e) => setBody(e.target.value)} />
                       <button className='edit_review' type='submit' onSubmit={(e) => updateReview(review.id, text_field, e)}>edit</button>
                       <button className='delete_review' onClick={() => deleteReview(review.id)}>delete</button>
