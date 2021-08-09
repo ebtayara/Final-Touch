@@ -40,7 +40,7 @@ const Appointment = () => {
     <div className='appointment_body'>
       <div className='app_outer_container'>
         <div className='app_inner_container'>
-          <h1>Confirmation Page</h1>
+          <h1>Confirmation</h1>
           <div>
           We appreciate you wanting to visit! An appointment for {appointment?.full_name}
           </div>
@@ -59,10 +59,10 @@ const Appointment = () => {
           <div className='changes_outer_container'>
             <div className='changes_inner_container'>
               <div>
-              <NavLink to={`/edit/${id}`} exact={true} activeClassName='active' className='edit'>
+              <NavLink to={`/edit/${id}`} exact={true} activeClassName='active' className='appointment_edit'>
                 Edit
               </NavLink>
-              <button type='submit' onClick={cancelAppointment} className='cancel'>Cancel</button>
+              <button type='submit' onClick={cancelAppointment} className='appointment_cancel'>Cancel</button>
               </div>
             </div>
           </div>
