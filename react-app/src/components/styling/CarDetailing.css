@@ -1,4 +1,5 @@
-.cd_body {
+.form_outer_container {
+  display:flex;
   background-image: url('https://www.holtsauto.com/simoniz/wp-content/uploads/sites/4/2017/09/Fotolia_90003660_S.jpg');
   height: 49em;
   overflow: scroll;
@@ -6,33 +7,74 @@
   background-attachment: fixed;
   width: 100%;
   margin: 0px;
-}
-
-.form_outer_container {
-  display:flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .form_inner_container {
-  background-color: white;
+  border: 3px solid #f1f1f1;
+  height: fit-content;
+  margin: 7em;
+  padding: 10px;
+  background-color:rgba(255,255,255,.5)
 }
 
 .name_field {
   color: red;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  justify-content: center;
   font-weight: bold;
 }
 
 .email_field {
   color: red;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  justify-content: center;
   font-weight: bold;
 }
 
 .address_field {
   color: red;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  justify-content: center;
   font-weight: bold;
 }
 
 .number_field {
   color: red;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  justify-content: center;
   font-weight: bold;
+}
+
+.submit_app_form_btn {
+  background-color: yellow;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.submit_app_form_btn:hover {
+  opacity: 0.8;
 }
