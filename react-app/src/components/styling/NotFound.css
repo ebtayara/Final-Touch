@@ -1,0 +1,18 @@
+.not_found_body {
+  background-image: url('https://cdn.mos.cms.futurecdn.net/PuXipAW3AXUzUJ4uYyxPKC-1200-80.jpg');
+  height: 49em;
+  overflow: scroll;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  margin: 0px;
+}
+
+.not_found_container {
+display: flex;
+justify-content: center;
+}
+
+.not_found_inner_container {
+
+}
