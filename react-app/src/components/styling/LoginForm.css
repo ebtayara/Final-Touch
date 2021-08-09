@@ -13,6 +13,8 @@
 .login_form_inner_container {
   border: 3px solid #f1f1f1;
   height: fit-content;
+  margin: 7em;
+  padding: 10px;
 }
 
 .input_fields {
