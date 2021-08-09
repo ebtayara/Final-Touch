@@ -68,9 +68,9 @@ const CarDetailing = () => {
           <div key={i}>{error.slice(error.indexOf(':') + 1)}</div>
         ))}
           </div>
-          <div className='name_field'>
-            <label>Full Name</label>
-            <input
+          <div>
+            {/* <label>Full Name</label> */}
+            <input className='name_field'
               type='text'
               name='full_name'
               placeholder='Fist and Last Name'
@@ -78,9 +78,9 @@ const CarDetailing = () => {
               value={fullName}
             ></input>
           </div>
-          <div className='email_field'>
-            <label htmlFor='email'>Email</label>
-            <input
+          <div>
+            {/* <label htmlFor='email'>Email</label> */}
+            <input className='email_field'
               type='text'
               name='email'
               placeholder='email@ESP.domain'
@@ -88,9 +88,9 @@ const CarDetailing = () => {
               value={email}
             ></input>
           </div>
-          <div className='address_field'>
-            <label>Address</label>
-            <input
+          <div>
+            {/* <label>Address</label> */}
+            <input className='address_field'
               type='text'
               name='address'
               placeholder='Street, City and State'
@@ -98,9 +98,9 @@ const CarDetailing = () => {
               value={address}
             ></input>
           </div>
-          <div className='number_field'>
-            <label>Phone Number</label>
-            <input
+          <div>
+            {/* <label>Phone Number</label> */}
+            <input className='number_field'
               type='integer'
               name='phone_number'
               placeholder='Enter Number Here'
@@ -108,8 +108,8 @@ const CarDetailing = () => {
               value={phoneNumber}
             ></input>
           </div>
-          <div className='submit_btn'>
-            <button type='submit'>Submit</button>
+          <div>
+            <button className='submit_btn' type='submit'>Submit</button>
           </div>
         </form>
       </div>

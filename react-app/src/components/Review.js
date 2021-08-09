@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams, useHistory} from 'react-router-dom';
-import {createReview, editReview, removeReview, addReview} from '../store/reviews';
+import {createReview, editReview, removeReview, getReviews} from '../store/reviews';
 import './styling/Review.css';
 
   const Review = () => {
@@ -23,11 +23,17 @@ import './styling/Review.css';
 
   const userReview = async(e) => {
       e.preventDefault()
-      dispatch(createReview({
+      const reviewDetails = await dispatch(createReview({
           text_field: newReview,
           user_id: user.id,
           app_id: Number(id)
       }))
+      console.log(reviewDetails)
+      if(reviewDetails) {
+        setErrors(reviewDetails)
+      } else {
+        setBody(reviewDetails.text_field)
+      }
       setNewReview('')
   };
 
@@ -53,12 +59,9 @@ import './styling/Review.css';
           user.review.forEach(user_review => {
             if(user_review.app_id === Number(id)) {
             setReviewOk(true)
-            const reviewDeets = dispatch(addReview(user_review))
-            if(reviewDeets) {
-              setErrors(reviewDeets)
-            } else {
-              setBody(user_review.text_field)
-            }
+            //to do: was addReview
+            //getReview
+            dispatch(getReviews(user_review))
           }})
         } else {
           setReviewOk(true)
@@ -77,6 +80,11 @@ import './styling/Review.css';
   return (
   <div className='reviews_outer_container'>
     <div className='review_body'>
+            <div>
+              {errors.map((error, i) => (
+              <div key={i}>{error.slice(error.indexOf(':') + 1)}</div>
+              ))}
+            </div>
     {reviewOk&&
       <div key={review.id} className='reviews_container'>
             <div className="review">
@@ -90,11 +98,6 @@ import './styling/Review.css';
               </div>
                 {showForm && review.id === formId ?
                     <form onSubmit={(e) => updateReview(review.id, text_field, e)} key={review.id}>
-                      {/* <div>
-                      {errors.map((error, i) => (
-                      <div key={i}>{error.slice(error.indexOf(':') + 1)}</div>
-                      ))}
-                      </div> */}
                       <input type="text" value={text_field} onChange={(e) => setBody(e.target.value)} />
                       <button className='edit_review' type='submit' onSubmit={(e) => updateReview(review.id, text_field, e)}>edit</button>
                       <button className='delete_review' onClick={() => deleteReview(review.id)}>delete</button>

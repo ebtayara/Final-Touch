@@ -55,12 +55,12 @@ function App() {
         <Route path='/edit/:id' exact={true}>
           <EditApp />
         </Route>
-        <Route path='/appointments' exact={true}>
+        <ProtectedRoute path='/appointments' exact={true}>
           <Appointments />
-        </Route>
-        <Route path='/reviews' exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/reviews' exact={true}>
           <Reviews />
-        </Route>
+        </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
