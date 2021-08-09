@@ -49,7 +49,7 @@ export const getAppointmentData = (user_id) => async(dispatch) => {
     }
 };
 
-export const newAppointment = (full_name, email, address, phone_number, history) => async(dispatch) => {
+export const newAppointment = (full_name, email, address, phone_number) => async(dispatch) => {
     phone_number = parseInt(phone_number)
     const response = await fetch('/api/appointments/new-appointment', {
         method: 'POST',
@@ -61,14 +61,14 @@ export const newAppointment = (full_name, email, address, phone_number, history)
             phone_number
         })
     });
-    console.log(full_name, '<<NAME>>-------------------')
-    console.log('YO!')
-    console.log('RESPONSE FROM THUNK', response)
+    // console.log(full_name, '<<NAME>>-------------------')
+    // console.log('YO!')
+    // console.log('RESPONSE FROM THUNK', response)
     if(response.ok) {
-        console.log('RESPONSE IS OK', response.ok)
+        // console.log('RESPONSE IS OK', response.ok)
         const newAppointment = await response.json()
         dispatch(addAppointment(newAppointment));
-        history.push(`/appointments/${newAppointment.id}`);
+        // history.push(`/appointments/${newAppointment.id}`);
         return null;
     } else if(response.status < 500) {
         const data = await response.json();
@@ -76,7 +76,7 @@ export const newAppointment = (full_name, email, address, phone_number, history)
         return data.errors;
         }
     } else {
-        return ['An error occurred. Please try again.']
+        return ['Fields must contain a valid entry']
     }
 };
 
@@ -103,7 +103,7 @@ export const editAppointment = (full_name, email, address, phone_number, history
             return data.errors;
         }
     } else {
-        return ['An error occurred. Please try again.']
+        return ['Name is required']
     }
 };
 

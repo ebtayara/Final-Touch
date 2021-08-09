@@ -14,6 +14,7 @@ const CarDetailing = () => {
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [phoneNumber, setNumber] = useState('');
+  const [errors, setErrors] = useState([]);
   const dispatch = useDispatch();
   const history = useHistory();
   // console.log('APP ID ****', app_id);
@@ -43,11 +44,14 @@ const CarDetailing = () => {
     //   phone_number: phoneNumber
     // }
     console.log('HELLO!')
-    const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber, history))
+
+    const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber))
     // console.log('*****************', formData)
-    // if (formData) {
-      // history.push(`/appointments/${app_id}`)
-    // }
+    if(formData) {
+      setErrors(formData)
+    } else {
+      history.push(`/appointments/${app_id}`)
+    }
   };
 
   if(!user) {
@@ -55,53 +59,60 @@ const CarDetailing = () => {
   };
 
   return (
-  <div className='form_outer_container'>
-    <div className='form_inner_container'>
-      <form onSubmit={onSubmit}>
-        <div className='name_field'>
-          {/* <label>Full Name</label> */}
-          <input
-            type='text'
-            name='full_name'
-            placeholder='Fist and Last Name'
-            onChange={updateFullName}
-            value={fullName}
-          ></input>
-        </div>
-        <div className='email_field'>
-          {/* <label htmlFor='email'>Email</label> */}
-          <input
-            type='text'
-            name='email'
-            placeholder='email@ESP.domain'
-            onChange={updateEmail}
-            value={email}
-          ></input>
-        </div>
-        <div className='address_field'>
-          {/* <label>Address</label> */}
-          <input
-            type='text'
-            name='address'
-            placeholder='Street, City and State'
-            onChange={updateAddress}
-            value={address}
-          ></input>
-        </div>
-        <div className='number_field'>
-          {/* <label>Phone Number</label> */}
-          <input
-            type='integer'
-            name='phone_number'
-            placeholder='Enter Number Here'
-            onChange={updateNumber}
-            value={phoneNumber}
-          ></input>
-        </div>
-        <div className='submit_app_form_btn'>
-          <button type='submit'>Submit</button>
-        </div>
-      </form>
+  <div className='cd_body'>
+    <div className='form_outer_container'>
+      <div className='form_inner_container'>
+        <form onSubmit={onSubmit}>
+          <div>
+          {errors.map((error, i) => (
+          <div key={i}>{error.slice(error.indexOf(':') + 1)}</div>
+        ))}
+          </div>
+          <div className='name_field'>
+            <label>Full Name</label>
+            <input
+              type='text'
+              name='full_name'
+              placeholder='Fist and Last Name'
+              onChange={updateFullName}
+              value={fullName}
+            ></input>
+          </div>
+          <div className='email_field'>
+            <label htmlFor='email'>Email</label>
+            <input
+              type='text'
+              name='email'
+              placeholder='email@ESP.domain'
+              onChange={updateEmail}
+              value={email}
+            ></input>
+          </div>
+          <div className='address_field'>
+            <label>Address</label>
+            <input
+              type='text'
+              name='address'
+              placeholder='Street, City and State'
+              onChange={updateAddress}
+              value={address}
+            ></input>
+          </div>
+          <div className='number_field'>
+            <label>Phone Number</label>
+            <input
+              type='integer'
+              name='phone_number'
+              placeholder='Enter Number Here'
+              onChange={updateNumber}
+              value={phoneNumber}
+            ></input>
+          </div>
+          <div className='submit_btn'>
+            <button type='submit'>Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
   )

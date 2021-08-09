@@ -48,7 +48,7 @@ def create_appointment():
         db.session.add(appointment)
         db.session.commit()
         return appointment.to_dict()
-    return {}
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 #edit appointment details
 @appointment_routes.route('/edit-appointment/<int:id>', methods=['PUT'])
