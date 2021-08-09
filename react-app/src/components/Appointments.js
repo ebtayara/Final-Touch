@@ -43,13 +43,18 @@ return (
         <ul>
           {appointments.map(appointment => (
             <li key={appointment.id} className='app_details'>
-              {appointment.full_name}{appointment.email}
-              {appointment.address}
-              {appointment.phone_number}
+              {/* Thanks for booking {appointment.full_name}! You can use {appointment.email}
+              to keep an eye on updates. In-house visits will
+              <div>
+              be made to {appointment.address}.
+              We will contact you at {appointment.phone_number} if anything changes.
+              </div> */}
+              Name: {appointment.full_name}. Email: {appointment.email}.
+              Address: {appointment.address}. Phone: {appointment.phone_number}.
             <div>
-              Tell us about your visit! We appreciate any
+              Tell us about your visit!
               <NavLink onClick={() => dispatch(appointmentData(appointment))}to={`/reviews/appointments/${appointment.id}`} exact={true} activeClassName='active' className="review_btn">
-                feedback
+                Leave us a review.
               </NavLink>
             </div>
             </li>
