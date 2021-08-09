@@ -4,8 +4,8 @@ import './styling/Home.css'
 const Home = () => {
   return (
   <div className='home_splash'>
-    <div className="title">
-      <h1>Behold! The Home Page!</h1>
+    <div className="home_title">
+      <h1>Let us Groom Your Ride!</h1>
     </div>
   </div>
   )

@@ -1,3 +1,42 @@
-.form_outer_container {
-  margin-top: 5em;
+.sign_up_form_outer_container {
+  display:flex;
+  background-image: url('https://wp.thirtysixteen.org/chaconautos/wp-content/uploads/sites/2/2021/01/Hero-Homepage.png');
+  height: 49em;
+  overflow: scroll;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  margin: 0px;
+  justify-content: center;
+}
+
+.sign_up_form_inner_container {
+  border: 3px solid #f1f1f1;
+  height: fit-content;
+  margin: 7em;
+  padding: 10px;
+}
+
+.input_fields {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.signup_form_btn {
+  background-color: blue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.signup_form_btn:hover {
+  opacity: 0.8;
 }

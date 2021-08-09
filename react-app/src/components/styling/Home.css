@@ -8,6 +8,14 @@
   margin: 0px;
 }
 
+.home_title {
+font-weight: 600;
+font-size: 4rem;
+margin-bottom: 0;
+outline: none;
+color: red;
+}
+
 /* .title {
   margin-top: 5em;
 } */

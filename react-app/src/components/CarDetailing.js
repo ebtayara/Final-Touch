@@ -8,7 +8,7 @@ const CarDetailing = () => {
   const user = useSelector(state => state.session.user);
   // const {app_id} = useParams();
   const appointment = useSelector(state => state.appointment.appointment);
-  console.log('APP STATE*****', appointment)
+  // console.log('APP STATE*****', appointment)
   const app_id = appointment?.id;
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -44,6 +44,7 @@ const CarDetailing = () => {
     //   phone_number: phoneNumber
     // }
     console.log('HELLO!')
+
     const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber))
     // console.log('*****************', formData)
     if(formData) {
