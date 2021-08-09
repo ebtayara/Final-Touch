@@ -12,6 +12,7 @@
 
 .login_form_inner_container {
   border: 3px solid #f1f1f1;
+  height: fit-content;
 }
 
 .input_fields {
@@ -21,10 +22,11 @@
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  justify-content: center;
 }
 
-.submit_btn {
-  background-color: #04AA6D;
+.login_form_btn {
+  background-color: red;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
