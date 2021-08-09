@@ -44,7 +44,7 @@ export const createReview = (review) => async (dispatch) => {
   })
   if (res.ok) {
       const newReview = await res.json()
-      dispatch(addReview(newReview))
+      await dispatch(addReview(newReview))
       return null;
   } else if(res.status < 500) {
     const data = await res.json();

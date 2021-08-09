@@ -23,16 +23,16 @@ import './styling/Review.css';
 
   const userReview = async(e) => {
       e.preventDefault()
-      const reviewDetails = await dispatch(createReview({
+      const reviewErrors = await dispatch(createReview({
           text_field: newReview,
           user_id: user.id,
           app_id: Number(id)
       }))
-      console.log(reviewDetails)
-      if(reviewDetails) {
-        setErrors(reviewDetails)
+      // console.log(reviewErrors)
+      if(reviewErrors) {
+        setErrors(reviewErrors)
       } else {
-        setBody(reviewDetails.text_field)
+        setBody(review?.text_field)
       }
       setNewReview('')
   };
@@ -59,8 +59,6 @@ import './styling/Review.css';
           user.review.forEach(user_review => {
             if(user_review.app_id === Number(id)) {
             setReviewOk(true)
-            //to do: was addReview
-            //getReview
             dispatch(getReviews(user_review))
           }})
         } else {
@@ -81,7 +79,7 @@ import './styling/Review.css';
   <div className='reviews_outer_container'>
     <div className='review_body'>
             <div>
-              {errors.map((error, i) => (
+              {errors && errors.map((error, i) => (
               <div key={i}>{error.slice(error.indexOf(':') + 1)}</div>
               ))}
             </div>
