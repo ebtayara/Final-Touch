@@ -43,7 +43,7 @@ const CarDetailing = () => {
     //   address: address,
     //   phone_number: phoneNumber
     // }
-    console.log('HELLO!')
+    // console.log('HELLO!')
 
     const formData = await dispatch(newAppointment(fullName, email, address, phoneNumber))
     // console.log('*****************', formData)

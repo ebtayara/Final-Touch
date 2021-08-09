@@ -16,6 +16,7 @@ import EditApp from './components/EditApp';
 import Appointments from './components/Appointments';
 import Review from './components/Review';
 import Reviews from './components/Reviews';
+import NotFound from './components/NotFound';
 import { authenticate } from './store/session';
 
 function App() {
@@ -72,6 +73,9 @@ function App() {
         </Route>
         <Route path='/home' exact={true}>
           <Home />
+        </Route>
+        <Route exact={true}>
+          <NotFound />
         </Route>
       </Switch>
       <Footer />

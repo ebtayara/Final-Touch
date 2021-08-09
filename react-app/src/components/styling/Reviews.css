@@ -7,3 +7,23 @@
   width: 100%;
   margin: 0px;
 }
+
+.reviews_container {
+
+}
+
+.reviews_title {
+  display: flex;
+  justify-content: center;
+}
+
+.reviews {
+  display: flex;
+  justify-content: center;
+}
+
+.reviews_ul {
+  list-style-type: circle;
+  font-size: 18px;
+  font-weight: bold;
+}
