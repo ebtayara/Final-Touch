@@ -35,6 +35,6 @@
   width: 100%;
 }
 
-.submit_btn:hover {
+.login_form_btn {
   opacity: 0.8;
 }

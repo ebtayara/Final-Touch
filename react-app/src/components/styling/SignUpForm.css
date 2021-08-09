@@ -1,3 +1,40 @@
 .sign_up_form_outer_container {
+  display:flex;
+  background-image: url('https://media.istockphoto.com/photos/opening-car-door-picture-id667701150?k=6&m=667701150&s=612x612&w=0&h=DoRulII8vXyxfc962ED4jhvhQjdfHdCsNdRZPg_1ge0=');
+  height: 49em;
+  overflow: scroll;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  margin: 0px;
+  justify-content: center;
+}
 
+.sign_up_form_inner_container {
+  border: 3px solid #f1f1f1;
+  height: fit-content;
+}
+
+.input_fields {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.signup_form_btn {
+  background-color: red;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.signup_form_btn:hover {
+  opacity: 0.8;
 }
