@@ -35,7 +35,7 @@ return (
   <div className='apps_body'>
     <div>
       <div className='app_title'>
-        <h1>Appointments Page</h1>
+        <h1>Appointments</h1>
       </div>
     <div className='appointments_container'>
       <div className='appointments'>

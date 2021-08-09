@@ -22,12 +22,12 @@ if(reviews) {
 
   return (
   <div className='reviews_body'>
-    <div>
-      <div className='title'>
-        <h1>Reviews Page</h1>
+    <div className='reviews_container'>
+      <div className='reviews_title'>
+        <h1>Reviews</h1>
       </div>
       <div className='reviews'>
-        <ul>
+        <ul className='reviews_ul'>
           {reviews.map(review => (
             <li key={review.id}>
               {review.text_field}
