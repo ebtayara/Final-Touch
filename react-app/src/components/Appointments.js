@@ -26,11 +26,12 @@ useEffect(() => {
   grabData();
 }, [user.id]);
 
-console.log(appointments)
+// console.log(appointments)
 
 if(appointments) {
 
-  return (
+return (
+  <>
   <div className='apps_body'>
     <div>
       <div className='app_title'>
@@ -59,9 +60,11 @@ if(appointments) {
     </div>
   </div>
 </div>
+  </>
     )
   }
-  return null
-}
+  //returns null with a valid JSX fragment
+  return (<></>)
+};
 
 export default Appointments;

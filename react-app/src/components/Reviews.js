@@ -16,7 +16,7 @@ useEffect(() => {
   getReviews();
 }, [user.id]);
 
-console.log(reviews)
+// console.log(reviews)
 
 if(reviews) {
 
@@ -29,13 +29,12 @@ if(reviews) {
       <div className='reviews'>
         <ul>
           {reviews.map(review => (
-            <li key={user.id}>
+            <li key={review.id}>
               {review.text_field}
             </li>
           ))}
         </ul>
         <div>
-
         </div>
       </div>
     </div>
