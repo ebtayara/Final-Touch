@@ -60,6 +60,27 @@ const CarDetailing = () => {
 
   return (
   <div className='cd_body'>
+    <div className='cd_types'>
+      <h1>Services We Offer</h1>
+      <div className='cd_type'>
+        Basic and Waterless Mobile Car Wash
+      </div>
+      <div className='cd_type'>
+        Complete Car Interior Detailing
+      </div>
+      <div className='cd_type'>
+        Full Car Exterior Detailing
+      </div>
+      <div className='cd_type'>
+        Full Car Detailing
+      </div>
+      <div className='cd_type'>
+        Full Car Restoration
+      </div>
+      <div className='cd_type'>
+        Show-Car Detailing
+      </div>
+    </div>
     <div className='form_outer_container'>
       <div className='form_inner_container'>
         <form onSubmit={onSubmit}>
