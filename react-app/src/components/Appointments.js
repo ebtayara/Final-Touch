@@ -34,9 +34,9 @@ return (
   <>
   <div className='apps_body'>
     <div>
-      <div className='app_title'>
+      {/* <div className='app_title'>
         <h1>Appointments</h1>
-      </div>
+      </div> */}
     <div className='appointments_container'>
       <div className='appointments'>
         {user &&

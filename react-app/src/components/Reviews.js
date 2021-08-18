@@ -23,9 +23,9 @@ if(reviews) {
   return (
   <div className='reviews_body'>
     <div className='reviews_container'>
-      <div className='reviews_title'>
+      {/* <div className='reviews_title'>
         <h1>Reviews</h1>
-      </div>
+      </div> */}
       <div className='reviews'>
         <ul className='reviews_ul'>
           {reviews.map(review => (
