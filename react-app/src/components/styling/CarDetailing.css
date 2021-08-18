@@ -78,3 +78,26 @@
 .submit_app_form_btn:hover {
   opacity: 0.8;
 }
+
+.cd_types {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+.cd_type {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.cd_type:hover {
+  background-color: #ddd;
+  color: black;
+  cursor: pointer;
+}
