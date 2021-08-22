@@ -60,6 +60,7 @@ def edit_review(id):
     user_review = Review.query.get(id)
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    #form data isn't being printed
     print('FORM DATA HERE ->>>>>>>>>>>>>>>>', form.data)
     if form.validate_on_submit():
         user_review.text_field = form.data['text_field'],
