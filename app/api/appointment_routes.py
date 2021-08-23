@@ -25,7 +25,8 @@ def appointments(user_id):
 def user_appointments(id):
     user_appointments = Appointment.query.get(id)
     if user_appointments is None:
-        return {}
+        # return {}
+        return None
     return user_appointments.to_dict()
 
 #create appointment
