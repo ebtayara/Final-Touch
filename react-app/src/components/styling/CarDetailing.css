@@ -136,4 +136,5 @@
 .services {
   display: flex;
   justify-content: center;
+  color: gold;
 }

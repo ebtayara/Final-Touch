@@ -19,7 +19,7 @@ import './styling/Review.css';
   const dispatch = useDispatch()
   const history = useHistory()
 
-  //need to add another useEffect() to grab the review data again so it doesn't disappear upon refresh
+  //need to add another useEffect() to grab the review data again so it doesn't disappear upon refresh?
 
   const userReview = async(e) => {
       e.preventDefault()
@@ -97,7 +97,7 @@ import './styling/Review.css';
                 {showForm && review.id === formId ?
                     <form onSubmit={(e) => updateReview(review.id, text_field, e)} key={review.id}>
                       <input type="text" value={text_field} onChange={(e) => setBody(e.target.value)} />
-                      <button className='edit_review' type='submit' onSubmit={(e) => updateReview(review.id, text_field, e)}>edit</button>
+                      <button className='edit_review' type='submit' onSubmit={(e) => updateReview(review.id, text_field, e)}>submit</button>
                       <button className='delete_review' onClick={() => deleteReview(review.id)}>delete</button>
                     </form>
                     : null}
