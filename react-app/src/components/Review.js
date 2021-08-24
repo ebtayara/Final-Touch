@@ -19,7 +19,7 @@ import './styling/Review.css';
   const dispatch = useDispatch()
   const history = useHistory()
 
-  //need to add another useEffect() to grab the review data again so it doesn't disappear upon refresh
+  //need to add another useEffect() to grab the review data again so it doesn't disappear upon refresh?
 
   const userReview = async(e) => {
       e.preventDefault()
