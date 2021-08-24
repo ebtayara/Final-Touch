@@ -6,6 +6,8 @@
   background-attachment: fixed;
   width: 100%;
   margin: 0px;
+  display: flex;
+  justify-content: center;
 }
 
 .home_title {
@@ -14,6 +16,17 @@ font-size: 4rem;
 margin-bottom: 0;
 outline: none;
 color: red;
+text-decoration: none;
+}
+
+.cd_reroute {
+color: gold;
+text-decoration: none;
+}
+
+.cd_reroute_container {
+  display: flex;
+  justify-content: center;
 }
 
 /* .title {

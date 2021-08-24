@@ -104,7 +104,8 @@ const CarDetailing = () => {
             Show-Car Detailing
           </h2>
           <h3 className='cd_type_description'>
-          We provide this service on limited high-end show cars that gather more mileage inside a truck than they do while on the road.
+          We provide this service on limited high-end show cars that gather more mileage inside a truck than they do while on the road. It's our more pricey service, but you know what they say!
+          You get what you pay for.
             </h3>
         </div>
       <div className='form_inner_container'>
