@@ -13,6 +13,7 @@
 .form_inner_container {
   border: 3px solid #f1f1f1;
   height: fit-content;
+  width: 50%;
   margin: 7em;
   padding: 10px;
   background-color:rgba(255,255,255,.5)
@@ -77,4 +78,62 @@
 
 .submit_app_form_btn:hover {
   opacity: 0.8;
+}
+
+.cd_body {
+
+}
+
+.cd_types {
+  overflow: hidden;
+  /* background-color: #f1f1f1; */
+  padding: 20px 10px;
+}
+
+.cd_type_description {
+  background: rgba(255,255,255,.7);
+  border-radius: 10%;
+}
+
+/* .cd_type {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.cd_type:hover {
+  background-color: #ddd;
+  color: black;
+  cursor: pointer;
+} */
+
+.cd_type {
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 20%;
+  color: red;
+  font-weight: bold;
+  width: fit-content;
+  height: fit-content;
+  background:rgba(255,255,255,.7);
+}
+
+/* .cd_type:hover {
+  background-color: #ddd;
+  color: black;
+  cursor: pointer;
+} */
+
+.services {
+  display: flex;
+  justify-content: center;
 }
