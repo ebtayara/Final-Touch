@@ -61,7 +61,7 @@ const CarDetailing = () => {
   return (
   <div className='cd_body'>
     <div className='cd_types'>
-      <h1>Services We Offer</h1>
+      <h1 className='services'>Services We Offer</h1>
       <div className='cd_type'>
         Basic and Waterless Mobile Car Wash
       </div>

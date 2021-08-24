@@ -117,3 +117,8 @@
   color: black;
   cursor: pointer;
 }
+
+.services {
+  display: flex;
+  justify-content: center;
+}
