@@ -13,6 +13,7 @@
 .form_inner_container {
   border: 3px solid #f1f1f1;
   height: fit-content;
+  width: 50%;
   margin: 7em;
   padding: 10px;
   background-color:rgba(255,255,255,.5)
@@ -89,6 +90,11 @@
   padding: 20px 10px;
 }
 
+.cd_type_description {
+  background: rgba(255,255,255,.7);
+  border-radius: 10%;
+}
+
 /* .cd_type {
   float: left;
   color: black;
@@ -116,7 +122,7 @@
   border-radius: 20%;
   color: red;
   font-weight: bold;
-  width: 100%;
+  width: fit-content;
   height: fit-content;
   background:rgba(255,255,255,.7);
 }
