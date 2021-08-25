@@ -27,11 +27,14 @@ const deleteReview = (review) => ({
 
 //thunks
 export const getReviews = () => async (dispatch) => {
+  console.log('EYO IS THIS WORKING?')
   const res = await fetch(`/api/reviews/all`)
   if (res.ok) {
       const reviews = await res.json()
       console.log('***************REVIEWS****************', reviews)
       dispatch(loadReviews(reviews))
+  } else {
+    console.log('ERROR FROM GETREVIEWS THUNK')
   }
 };
 

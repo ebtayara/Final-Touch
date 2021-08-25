@@ -8,6 +8,7 @@ const Reviews = () => {
 const user = useSelector(state => state.session.user);
 // const appointment = useSelector(state => state.appointment.appointment);
 const review = useSelector(state => state.review.reviews);
+// console.log(review)
 const [reviews, setReviews] = useState();
 const dispatch = useDispatch();
 
@@ -24,10 +25,9 @@ const dispatch = useDispatch();
 
 //get all reviews
 useEffect(() => {
-  if(review) {
-        dispatch(getReviews(review.id))
-      }}
-, [dispatch, review]);
+dispatch(getReviews())
+}
+, [dispatch]);
 
 // //get all reviews?
 // useEffect(() => {
