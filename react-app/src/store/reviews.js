@@ -26,10 +26,11 @@ const deleteReview = (review) => ({
 });
 
 //thunks
-export const getReviews = (app_id) => async (dispatch) => {
-  const res = await fetch(`/api/reviews/${app_id}`)
+export const getReviews = () => async (dispatch) => {
+  const res = await fetch(`/api/reviews/all`)
   if (res.ok) {
       const reviews = await res.json()
+      console.log('***************REVIEWS****************', reviews)
       dispatch(loadReviews(reviews))
   }
 };

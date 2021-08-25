@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import getReviews from '../store/reviews';
 import './styling/Reviews.css';
 
 const Reviews = () => {
 
-// const user = useSelector(state => state.session.user);
-const appointment = useSelector(state => state.appointment.appointment)
+const user = useSelector(state => state.session.user);
+// const appointment = useSelector(state => state.appointment.appointment);
+const review = useSelector(state => state.review.reviews);
 const [reviews, setReviews] = useState();
+const dispatch = useDispatch();
 
-//get user specific reviews
+// //get user specific reviews - this works
 // useEffect(() => {
 //   async function getReviews() {
 //     const response = await fetch(`/api/reviews/all/${user.id}`);
@@ -21,13 +24,30 @@ const [reviews, setReviews] = useState();
 
 //get all reviews
 useEffect(() => {
-  async function getAllReviews() {
-    const response = await fetch(`/api/reviews/all/${appointment?.id}`);
-    const responseData = await response.json();
-    setReviews(responseData.reviews)
-  }
-  getAllReviews();
-}, [appointment?.id]);
+  if(review) {
+        dispatch(getReviews(review.id))
+      }}
+, [dispatch, review]);
+
+// //get all reviews?
+// useEffect(() => {
+//   async function getReviews() {
+//     const response = await fetch(`/api/reviews/all`);
+//     const responseData = await response.json();
+//     setReviews(responseData.reviews)
+//   }
+//   getReviews();
+// }, []);
+
+// //get all reviews??
+// useEffect(() => {
+//   async function getAllReviews() {
+//     const response = await fetch(`/api/reviews/all/${appointment?.id}`);
+//     const responseData = await response.json();
+//     setReviews(responseData.reviews)
+//   }
+//   getAllReviews();
+// }, [appointment?.id]);
 
 if(reviews) {
 

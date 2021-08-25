@@ -20,13 +20,23 @@ def grab_reviews(user_id):
     return {'reviews': [reviews.to_dict() for reviews in reviews]}
 
 #get all user reviews
-@reviews_routes.route('/all/<int:id>')
+# @reviews_routes.route('/all/<int:id>')
+# @login_required
+# def grab_review(id):
+#     user_reviews = Review.query.get(id)
+#     if user_reviews is None:
+#         return {}
+#     return user_reviews.to_dict()
+
+#get all reviews
+@reviews_routes.route('/all')
 @login_required
-def grab_review(id):
-    user_reviews = Review.query.get(id)
-    if user_reviews is None:
+def grab_review():
+    reviews = Review.query.all()
+    print('*****ALL REVIEWS****', reviews)
+    if reviews is None:
         return {}
-    return user_reviews.to_dict()
+    return {'reviews': reviews.to_dict() for reviews in reviews}
 
 #create review
 @reviews_routes.route('/new/<int:id>', methods=['POST'])
