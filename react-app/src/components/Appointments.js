@@ -49,7 +49,7 @@ return (
               be made to {appointment.address}.
               We will contact you at {appointment.phone_number} if anything changes.
               </div> */}
-              Name: {appointment.full_name}. Email: {appointment.email}.
+              Name: {appointment.full_name}.{" "}Email: {appointment.email}.
               Address: {appointment.address}. Phone: {appointment.phone_number}.
             <div>
               Tell us about your visit!
