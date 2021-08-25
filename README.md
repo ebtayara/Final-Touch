@@ -1,6 +1,6 @@
 # FinalTouch
 
-## FinalTouch at a Glance
+## What is FinalTouch?
 FinalTouch is a basic fullstack app that uses Flask/Python on the backend and React/Javascript on the front. I designed it in an attempt to help a friend who owns a car detailing shop in my area. It is meant to allow users to view the available car detailing services and if they so choose, schedule an appointment at the shop. Users can then leave a review for said appointment to provide the owner/employees with much needed feedback.
 
 ## Database Design
