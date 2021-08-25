@@ -4,19 +4,30 @@ import './styling/Reviews.css';
 
 const Reviews = () => {
 
-const user = useSelector(state => state.session.user);
+// const user = useSelector(state => state.session.user);
+const appointment = useSelector(state => state.appointment.appointment)
 const [reviews, setReviews] = useState();
 
+//get user specific reviews
+// useEffect(() => {
+//   async function getReviews() {
+//     const response = await fetch(`/api/reviews/all/${user.id}`);
+//     const responseData = await response.json();
+//     setReviews(responseData.reviews)
+//   }
+//   getReviews();
+// }, [user.id]);
+// console.log(reviews)
+
+//get all reviews
 useEffect(() => {
-  async function getReviews() {
-    const response = await fetch(`/api/reviews/all/${user.id}`);
+  async function getAllReviews() {
+    const response = await fetch(`/api/reviews/all/${appointment?.id}`);
     const responseData = await response.json();
     setReviews(responseData.reviews)
   }
-  getReviews();
-}, [user.id]);
-
-// console.log(reviews)
+  getAllReviews();
+}, [appointment?.id]);
 
 if(reviews) {
 
