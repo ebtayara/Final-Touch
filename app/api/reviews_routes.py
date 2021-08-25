@@ -36,7 +36,7 @@ def grab_review():
     print('*****ALL REVIEWS****', reviews)
     if reviews is None:
         return {}
-    return {'reviews': reviews.to_dict() for reviews in reviews}
+    return {'reviews': [review.to_dict() for review in reviews]}
 
 #create review
 @reviews_routes.route('/new/<int:id>', methods=['POST'])
