@@ -12,21 +12,31 @@ def validation_errors_to_error_messages(validation_errors):
 
 reviews_routes = Blueprint('reviews', __name__)
 
-#get all reviews
+#get user specific reviews
 @reviews_routes.route('/all/<int:user_id>')
 @login_required
 def grab_reviews(user_id):
     reviews = Review.query.filter_by(user_id = user_id)
     return {'reviews': [reviews.to_dict() for reviews in reviews]}
 
-#get user specific reviews
-@reviews_routes.route('/<int:id>')
+#get all user reviews
+# @reviews_routes.route('/all/<int:id>')
+# @login_required
+# def grab_review(id):
+#     user_reviews = Review.query.get(id)
+#     if user_reviews is None:
+#         return {}
+#     return user_reviews.to_dict()
+
+#get all reviews
+@reviews_routes.route('/all')
 @login_required
-def grab_review(id):
-    user_reviews = Review.query.get(id)
-    if user_reviews is None:
+def grab_review():
+    reviews = Review.query.all()
+    print('*****ALL REVIEWS****', reviews)
+    if reviews is None:
         return {}
-    return user_reviews.to_dict()
+    return {'reviews': reviews.to_dict() for reviews in reviews}
 
 #create review
 @reviews_routes.route('/new/<int:id>', methods=['POST'])
@@ -39,7 +49,7 @@ def create_review(id):
             text_field = form.data['text_field'],
             user_id = current_user.id,
             app_id = form.data['app_id']
-      )
+        )
         db.session.add(review)
         db.session.commit()
         return review.to_dict()

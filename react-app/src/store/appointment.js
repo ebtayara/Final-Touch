@@ -32,19 +32,19 @@ const removeAppointment = () => ({
 
 //thunks
 export const getData = (id) => async (dispatch) => {
-  const response = await fetch(`/api/appointments/${id}`);
-  console.log("APPOINTMENT DATA", response);
-  if (response.ok) {
-    const userAppointmentData = await response.json();
+  const res = await fetch(`/api/appointments/${id}`);
+  console.log("APPOINTMENT DATA", res);
+  if (res.ok) {
+    const userAppointmentData = await res.json();
     dispatch(appointmentData(userAppointmentData));
   }
 };
 
 export const getAppointmentData = (user_id) => async (dispatch) => {
-  const response = await fetch(`/api/appointments/all/${user_id}`);
-  console.log("ALL APPOINTMENT DATA", response);
-  if (response.ok) {
-    const allUserAppointmentData = await response.json();
+  const res = await fetch(`/api/appointments/all/${user_id}`);
+  console.log("ALL APPOINTMENT DATA", res);
+  if (res.ok) {
+    const allUserAppointmentData = await res.json();
     dispatch(appointmentsData(allUserAppointmentData));
   }
 };
@@ -53,7 +53,7 @@ export const getAppointmentData = (user_id) => async (dispatch) => {
 export const newAppointment =
   ({fullName, email, address, phoneNumber}) => async (dispatch) => {
     const phone_number = parseInt(phoneNumber);
-    const response = await fetch("/api/appointments/new-appointment", {
+    const res = await fetch("/api/appointments/new-appointment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -65,14 +65,14 @@ export const newAppointment =
     });
     // console.log(full_name, '<<NAME>>-------------------')
     // console.log('YO!')
-    // console.log('RESPONSE FROM THUNK', response)
-    if (response.ok) {
-      // console.log('RESPONSE IS OK', response.ok)
-      const newAppointment = await response.json();
+    // console.log('res FROM THUNK', res)
+    if (res.ok) {
+      // console.log('res IS OK', res.ok)
+      const newAppointment = await res.json();
       dispatch(addAppointment(newAppointment));
       return { data: newAppointment, errors: null };
-    } else if (response.status < 500) {
-      const data = await response.json();
+    } else if (res.status < 500) {
+      const data = await res.json();
       if (data.errors) {
         return { data: null, errors: data.errors };
       }
@@ -84,7 +84,7 @@ export const newAppointment =
 export const editAppointment =
   (full_name, email, address, phone_number, history, id) =>
   async (dispatch) => {
-    const response = await fetch(`/api/appointments/edit-appointment/${id}`, {
+    const res = await fetch(`/api/appointments/edit-appointment/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -96,12 +96,12 @@ export const editAppointment =
         phone_number,
       }),
     });
-    if (response.ok) {
-      const data = await response.json();
+    if (res.ok) {
+      const data = await res.json();
       dispatch(updateAppointment(data));
       return data;
-    } else if (response.status < 500) {
-      const data = await response.json();
+    } else if (res.status < 500) {
+      const data = await res.json();
       if (data.errors) {
         return data.errors;
       }
@@ -111,7 +111,7 @@ export const editAppointment =
   };
 
 export const deleteAppointment = (id, user_id) => async (dispatch) => {
-  const response = await fetch(
+  const res = await fetch(
     `/api/appointments/delete-appointment/${id}/${user_id}`,
     {
       method: "DELETE",
@@ -120,7 +120,7 @@ export const deleteAppointment = (id, user_id) => async (dispatch) => {
       },
     }
   );
-  if (response.ok) {
+  if (res.ok) {
     dispatch(removeAppointment());
   }
 };
