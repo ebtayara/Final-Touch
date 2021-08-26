@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getReviews } from '../store/reviews';
+import { getReviews, editReview, removeReview } from '../store/reviews';
 import './styling/Reviews.css';
 
 const Reviews = () => {
 
 const user = useSelector(state => state.session.user);
 // const appointment = useSelector(state => state.appointment.appointment);
-// const reviews = useSelector(state => Object.values(state.review.reviews));
+// const reviews = useSelector(state => state.review.reviews);
 const reviews = useSelector(state => Object.values(state.review));
 // console.log(review)
 // const [reviews, setReviews] = useState();
@@ -33,16 +33,6 @@ useEffect(() => {
 
 // //get all reviews?
 // useEffect(() => {
-//   async function getReviews() {
-//     const response = await fetch(`/api/reviews/all`);
-//     const responseData = await response.json();
-//     setReviews(responseData.reviews)
-//   }
-//   getReviews();
-// }, []);
-
-// //get all reviews??
-// useEffect(() => {
 //   async function getAllReviews() {
 //     const response = await fetch(`/api/reviews/all/${appointment?.id}`);
 //     const responseData = await response.json();
@@ -52,7 +42,6 @@ useEffect(() => {
 // }, [appointment?.id]);
 
 // if(reviews) {
-
 
   return (
   <div className='reviews_body'>
@@ -69,10 +58,20 @@ useEffect(() => {
             </li>
             {user && user.id === review.user_id &&
             <div>
-              
+              <div className='edit_review_container'>
+              <button type='submit' onClick={async() => {
+                await dispatch(editReview(review.id))
+              }} className='edit_review'>Edit</button>
+              </div>
+              <div className='delete_review_container'>
+              <button type='submit' onClick={async() => {
+                await dispatch(removeReview(review.id))
+                window.location.reload()
+              }} className='delete_review'>Delete</button>
+              </div>
             </div>
             }
-            </div>
+        </div>
           ))}
         </ul>
         <div>
