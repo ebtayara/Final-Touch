@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { appointmentData, cancelAppointment } from '../store/appointment';
 // import { cancelAppointment } from './Appointment';
 import './styling/Appointments.css';
@@ -8,10 +8,10 @@ import './styling/Appointments.css';
 const Appointments = () => {
 
 const user = useSelector(state => state.session.user);
-const appointment = useSelector(state => state.appointment.appointment)
+// const appointment = useSelector(state => state.appointment.appointment)
 const [appointments, setAppointments] = useState();
 const dispatch = useDispatch();
-const history = useHistory();
+// const history = useHistory();
 
 // useEffect(() => {(async() => {
 
@@ -30,11 +30,13 @@ useEffect(() => {
 
 // console.log(appointments)
 
-const eraseAppointment = async(e) => {
-  e.preventDefault()
-  await dispatch(cancelAppointment(appointment?.id))
-  history.push(`/appointments`)
-};
+// const eraseAppointment = async(e) => {
+//   e.preventDefault()
+//   if (appointment.id) {
+//   await dispatch(cancelAppointment(appointment.id))
+//   history.push(`/appointments`)
+//   }
+// };
 
 if(appointments) {
 
@@ -68,7 +70,10 @@ return (
               </div>
             </div>
             <div className='delete_review'>
-              <button type='submit' onClick={eraseAppointment} className='appointment_cancel'>Cancel</button>
+              <button type='submit' onClick={async() => {
+                await dispatch(cancelAppointment(appointment.id))
+                window.location.reload()
+              }} className='appointment_cancel'>Cancel</button>
             </div>
             </li>
           ))}

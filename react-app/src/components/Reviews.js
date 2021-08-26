@@ -27,7 +27,7 @@ const dispatch = useDispatch();
 //get all reviews
 useEffect(() => {
   dispatch(getReviews())
-  console.log(reviews)
+  // console.log(reviews)
 }
 , [dispatch]);
 
