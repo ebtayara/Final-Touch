@@ -63,9 +63,16 @@ useEffect(() => {
       <div className='reviews'>
         <ul className='reviews_ul'>
           {reviews && reviews.map(review => (
-            <li key={review.id}>
+            <div key={review.id}>
+            <li>
               {review.text_field}
             </li>
+            {user && user.id === review.user_id &&
+            <div>
+              
+            </div>
+            }
+            </div>
           ))}
         </ul>
         <div>
