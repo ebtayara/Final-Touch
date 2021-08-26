@@ -125,6 +125,21 @@ export const deleteAppointment = (id, user_id) => async (dispatch) => {
   }
 };
 
+export const cancelAppointment = (id) => async (dispatch) => {
+  const res = await fetch(
+    `/api/appointments/cancel-appointment/${id}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (res.ok) {
+    dispatch(removeAppointment());
+  }
+};
+
 //reducer
 export default function appointment(
   state = { appointment: null, appointments: null },
