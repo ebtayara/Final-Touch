@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import {appointmentData} from '../store/appointment';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
+import { appointmentData,deleteAppointment } from '../store/appointment';
+// import { cancelAppointment } from './Appointment';
 import './styling/Appointments.css';
 
 const Appointments = () => {
@@ -10,6 +11,8 @@ const user = useSelector(state => state.session.user);
 // const appointment = useSelector(state => state.appointment.appointment)
 const [appointments, setAppointments] = useState();
 const dispatch = useDispatch();
+const history = useHistory();
+const {id} = useParams();
 
 // useEffect(() => {(async() => {
 
@@ -27,6 +30,12 @@ useEffect(() => {
 }, [user.id]);
 
 // console.log(appointments)
+
+const cancelAppointment = async(e) => {
+  e.preventDefault()
+  await dispatch(deleteAppointment(id, user?.id))
+  history.push(`/car-detailing`)
+};
 
 if(appointments) {
 
@@ -51,13 +60,16 @@ return (
               </div> */}
               Name: {appointment.full_name}.{" "} Email: {appointment.email}.
               {" "} Address: {appointment.address}.{" "} Phone: {appointment.phone_number}.{" "}
-            <div className='div'>
-              <div>
+            <div className='leave_review_container'>
+              <div className='leave_review'>
             {" "}Tell us about your visit!{" "}
               <NavLink onClick={() => dispatch(appointmentData(appointment))}to={`/reviews/appointments/${appointment.id}`} exact={true} activeClassName='active' className="review_btn">
                 Leave us a review.
               </NavLink>
               </div>
+            </div>
+            <div className='delete_review'>
+              <button type='submit' onClick={cancelAppointment} className='appointment_cancel'>Cancel</button>
             </div>
             </li>
           ))}
