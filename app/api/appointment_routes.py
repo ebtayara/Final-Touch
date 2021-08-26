@@ -93,3 +93,13 @@ def delete_appointment(id, user_id):
     db.session.commit()
     user_appointments = Appointment.query.filter_by(user_id = user_id).all()
     return {'appointments': user_appointments.to_dict() for user_appointments in user_appointments}
+
+#cancel appointment
+@appointment_routes.route('/cancel-appointment/<int:id>', methods=['DELETE'])
+@login_required
+def cancel_appointment(id):
+    user_appointment = Appointment.query.get(id)
+    db.session.delete(user_appointment)
+    db.session.commit()
+    user_appointments = Appointment.query.filter_by(id = id).all()
+    return {'appointments': user_appointments.to_dict() for user_appointments in user_appointments}
