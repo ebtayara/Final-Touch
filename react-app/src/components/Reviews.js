@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getReviews, editReview, removeReview } from '../store/reviews';
+import { getReviews, removeReview } from '../store/reviews';
 import './styling/Reviews.css';
 
 const Reviews = () => {
