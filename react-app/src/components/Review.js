@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
-import {
-  createReview,
-  editReview,
-  removeReview,
-  getReviews,
-} from "../store/reviews";
+import { createReview, editReview, removeReview, getReviews } from "../store/reviews";
 import "./styling/Review.css";
 
 const Review = () => {
@@ -25,7 +20,7 @@ const Review = () => {
   const [newReview, setNewReview] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [formId, setFormId] = useState(null);
-  const [reviewOk, setReviewOk] = useState(false);
+  const [, setReviewOk] = useState(false);
   const [errors, setErrors] = useState([]);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -66,7 +61,6 @@ const Review = () => {
     }
   };
 
-  // what is this doing
   useEffect(() => {
     if (currentReview) {
       if (currentReview.app_id !== Number(id)) {
@@ -168,59 +162,3 @@ const Review = () => {
 };
 
 export default Review;
-
-{/* <ReviewForm {...{updateReview, currentReview, text_field, setBody, deleteReview}} /> : null}
-</div>
-) : null}
-<div>
-{!currentReview && (
-  <form onSubmit={userReview}>
-    <div>
-      <textarea
-        className="textArea"
-        value={newReview}
-        onChange={(e) => setNewReview(e.target.value)}
-        cols="30"
-        rows="10"
-      ></textarea>
-    </div>
-    <div>
-      <button className="submitButton" type="submit">
-        Submit
-      </button>
-    </div>
-  </form>
-)}
-</div>
-</div>
-</div>
-);
-};
-
-export default Review;
-function ReviewForm({updateReview, currentReview, text_field, setBody, deleteReview}) {
-return (
-<form
-onSubmit={(e) => updateReview(currentReview.id, text_field, e)}
-key={currentReview.id}
->
-<input
-type="text"
-value={text_field}
-onChange={(e) => setBody(e.target.value)} />
-<button
-className="edit_review"
-type="submit"
-onSubmit={(e) => updateReview(currentReview.id, text_field, e)}
->
-submit
-</button>
-<button
-className="delete_review"
-onClick={() => deleteReview(currentReview.id)}
->
-delete
-</button>
-</form>
-);
-} */}
