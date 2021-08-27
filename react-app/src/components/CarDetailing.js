@@ -185,7 +185,7 @@ const CarDetailing = () => {
                 className="number_field"
                 type="integer"
                 name="phone_number"
-                placeholder="Enter Number Here"
+                placeholder="Phone Number"
                 onChange={updateNumber}
                 value={phoneNumber}
               ></input>

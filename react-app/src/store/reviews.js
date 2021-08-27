@@ -56,7 +56,7 @@ export const createReview = (review) => async (dispatch) => {
       return data.errors;
     }
   } else {
-    return ["Fields must contain a valid entry"];
+    return ["Fields must contain a valid entry."];
   }
 };
 
