@@ -77,7 +77,7 @@ export const newAppointment =
         return { data: null, errors: data.errors };
       }
     } else {
-      return { data: null, errors: ["Fields must contain a valid entry"] };
+      return { data: null, errors: ["Fields must contain a valid entry."] };
     }
   };
 
@@ -106,7 +106,7 @@ export const editAppointment =
         return data.errors;
       }
     } else {
-      return ["Name is required"];
+      return ["Name is required."];
     }
   };
 

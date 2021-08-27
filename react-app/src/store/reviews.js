@@ -56,7 +56,7 @@ export const createReview = (review) => async (dispatch) => {
       return data.errors;
     }
   } else {
-    return ["Fields must contain a valid entry"];
+    return ["Fields must contain a valid entry."];
   }
 };
 
@@ -79,7 +79,9 @@ export const removeReview = (review_id) => async (dispatch) => {
     method: "DELETE",
   });
   if (res.ok) {
-    dispatch(deleteReview(review_id));
+    const data = await res.json()
+    console.log('**********IN DELETE THUNK**********', data)
+    dispatch(deleteReview(data));
   }
 };
 
@@ -98,14 +100,16 @@ export default function reviews(state = {}, action) {
     case UPDATE_REVIEW:
       return { ...state, [action.payload.id]: action.payload };
     case DELETE_REVIEW:
-      const filteredReviews = Object.entries(state)
-      // filter out any that match the reviewId
-        .filter(([reviewId, _myReview]) => reviewId !== action.payload.id)
-        .reduce((acc, [key, val]) => {
-          return { ...acc, [key]: val };
-        }, {});
-      return filteredReviews;
-
+      newState = {...state}
+      delete newState[action.payload.id]
+      return newState
+      // const filteredReviews = Object.entries(state)
+      // // filter out any that match the reviewId
+      //   .filter(([reviewId, _myReview]) => reviewId !== action.payload.id)
+      //   .reduce((acc, [key, val]) => {
+      //     return { ...acc, [key]: val };
+      //   }, {});
+      // return filteredReviews;
     default:
       return state;
   }
