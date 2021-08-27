@@ -51,18 +51,13 @@ useEffect(() => {
       </div> */}
       <div className='reviews'>
         <ul className='reviews_ul'>
-          {reviews && reviews.map(review => (
-            <div key={review.id}>
+          {reviews && reviews.map((review, i) => (
+            <div key={i}>
             <li>
               {review.text_field}
             </li>
             {user && user.id === review.user_id &&
             <div>
-              <div className='edit_review_container'>
-              <button type='submit' onClick={async() => {
-                await dispatch(editReview(review.id))
-              }} className='edit_review'>Edit</button>
-              </div>
               <div className='delete_review_container'>
               <button type='submit' onClick={async() => {
                 await dispatch(removeReview(review.id))
