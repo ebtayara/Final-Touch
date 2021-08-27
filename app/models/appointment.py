@@ -7,7 +7,7 @@ class Appointment(db.Model):
     full_name = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False)
     address = db.Column(db.String)
-    phone_number = db.Column(db.Integer)
+    phone_number = db.Column(db.BigInteger)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     user = db.relationship("User", back_populates="appointment")
     review = db.relationship("Review", cascade="all, delete-orphan", back_populates="appointment")
