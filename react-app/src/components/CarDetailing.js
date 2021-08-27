@@ -155,6 +155,7 @@ const CarDetailing = () => {
                 placeholder="Fist and Last Name"
                 onChange={updateFullName}
                 value={fullName}
+                required
               ></input>
             </div>
             <div>
@@ -166,6 +167,7 @@ const CarDetailing = () => {
                 placeholder="email@ESP.domain"
                 onChange={updateEmail}
                 value={email}
+                required
               ></input>
             </div>
             <div>
@@ -177,17 +179,19 @@ const CarDetailing = () => {
                 placeholder="Street, City and State"
                 onChange={updateAddress}
                 value={address}
+                required
               ></input>
             </div>
             <div>
               {/* <label>Phone Number</label> */}
               <input
                 className="number_field"
-                type="integer"
+                type="number"
                 name="phone_number"
-                placeholder="Phone Number"
+                placeholder="Phone Number (Up to 15 Digits)"
                 onChange={updateNumber}
                 value={phoneNumber}
+                required
               ></input>
             </div>
             <div>
