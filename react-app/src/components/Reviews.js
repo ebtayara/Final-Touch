@@ -61,7 +61,7 @@ useEffect(() => {
               <div className='delete_review_container'>
               <button type='submit' onClick={async() => {
                 await dispatch(removeReview(review.id))
-                window.location.reload()
+                // window.location.reload()
               }} className='delete_review'>Delete</button>
               </div>
             </div>
