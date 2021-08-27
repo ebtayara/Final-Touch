@@ -14,6 +14,7 @@ class ScheduleForm(FlaskForm):
     full_name = StringField('full_name', validators=[DataRequired('Name is required.')])
     email = StringField('email', validators=[DataRequired('Email is required.'), Email()])
     address = StringField('address', validators=[DataRequired('Address is required.')])
-    phone_number = IntegerField('phone_number', validators=[DataRequired('Number is required.'), NumberRange(min = 1, max = 15, message = 'Number cannot exceed 15 digits.')])
+    phone_number = IntegerField('phone_number', validators=[DataRequired('Number is required.')])
+    # NumberRange(min = 1, max = 15, message = 'Number cannot exceed 15 digits.')]
     # NumberRange(1000000000, None, 'Number needs to contain at least 10 digits')
     # NumberRange(10009999, None, 'Number needs to contain at least 8 digits')
