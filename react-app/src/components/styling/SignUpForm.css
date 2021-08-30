@@ -40,3 +40,8 @@
 .signup_form_btn:hover {
   opacity: 0.8;
 }
+
+.errors {
+  color: red;
+  font-weight: bold;
+}
