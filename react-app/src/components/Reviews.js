@@ -79,8 +79,6 @@ const openForm = (text_field, id) => {
                 await dispatch(removeReview(review.id))
                 // window.location.reload()
               }} className='delete_review'><i class="fas fa-trash"></i></button>
-              </div>
-              <div className="edit_btn_container">
               <button
                 className="edit_btn"
                 onClick={() => openForm(review.text_field, review.id)}
@@ -88,6 +86,8 @@ const openForm = (text_field, id) => {
                 <i className="fas fa-edit"></i>
               </button>
               </div>
+              {/* <div className="edit_btn_container">
+              </div> */}
               {showForm && review.id === formId && (
               <form
                 onSubmit={(e) => updateReview(review.id, text_field, e)}
