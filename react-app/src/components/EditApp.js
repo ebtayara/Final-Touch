@@ -55,7 +55,7 @@ const EditApp = () => {
     history.push('/')
   };
   // console.log('%%%%%%%%%%', fullName)
-  //I want to find a way to have it maintain the previous appointment data in the form fields
+
   return (
     <div className='form_outer_container'>
       <div className='form_inner_container'>
