@@ -63,6 +63,7 @@ const Review = () => {
 
   useEffect(() => {
     if (currentReview) {
+      //checking if the appointment id matches the params
       if (currentReview.app_id !== Number(id)) {
         user.review.forEach((user_review) => {
           if (user_review.app_id === Number(id)) {

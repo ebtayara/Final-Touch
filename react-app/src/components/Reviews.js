@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getReviews, removeReview } from '../store/reviews';
+import { getReviews, editReview, removeReview } from '../store/reviews';
 import './styling/Reviews.css';
 
 const Reviews = () => {
@@ -11,6 +11,9 @@ const user = useSelector(state => state.session.user);
 const reviews = useSelector(state => Object.values(state.review));
 // console.log(review)
 // const [reviews, setReviews] = useState();
+const [text_field, setBody] = useState("");
+const [showForm, setShowForm] = useState(false);
+const [formId, setFormId] = useState(null);
 const dispatch = useDispatch();
 
 // //get user specific reviews - this works
@@ -41,6 +44,19 @@ useEffect(() => {
 //   getAllReviews();
 // }, [appointment?.id]);
 
+const updateReview = async (review_id, text_field, e) => {
+  e.preventDefault();
+  await dispatch(editReview(text_field, review_id));
+  setBody("");
+  setShowForm(false);
+};
+
+const openForm = (text_field, id) => {
+  setBody(text_field);
+  setFormId(id);
+  setShowForm(!showForm);
+};
+
 // if(reviews) {
 
   return (
@@ -64,6 +80,35 @@ useEffect(() => {
                 // window.location.reload()
               }} className='delete_review'><i class="fas fa-trash"></i></button>
               </div>
+              <div className="edit_btn_container">
+              <button
+                className="edit_btn"
+                onClick={() => openForm(review.text_field, review.id)}
+              >
+                <i className="fas fa-edit"></i>
+              </button>
+              </div>
+              {showForm && review.id === formId && (
+              <form
+                onSubmit={(e) => updateReview(review.id, text_field, e)}
+                key={review.id}
+              >
+                <input
+                  type="text"
+                  value={text_field}
+                  onChange={(e) => setBody(e.target.value)}
+                />
+                <button
+                  className="edit_review"
+                  type="submit"
+                  onSubmit={(e) =>
+                    updateReview(review.id, text_field, e)
+                  }
+                >
+                  submit
+                </button>
+              </form>
+              )}
             </div>
             }
         </div>
