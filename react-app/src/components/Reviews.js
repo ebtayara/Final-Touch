@@ -52,7 +52,7 @@ const updateReview = async (review_id, text_field, e) => {
 };
 
 const openForm = () => {
-  setShowForm(true);
+  setShowForm(!showForm);
 };
 
 // if(reviews) {
@@ -86,7 +86,7 @@ const openForm = () => {
                 <i className="fas fa-edit"></i>
               </button>
               </div>
-              {/* {showForm && review.id === formId ? ( */}
+              {showForm && (
               <form
                 onSubmit={(e) => updateReview(review.id, text_field, e)}
                 key={review.id}
@@ -106,7 +106,7 @@ const openForm = () => {
                   submit
                 </button>
               </form>
-              {/* ):null} */}
+              )}
             </div>
             }
         </div>
