@@ -152,7 +152,7 @@ const CarDetailing = () => {
                 className="name_field"
                 type="text"
                 name="full_name"
-                placeholder="Fist and Last Name"
+                placeholder="First and Last Name"
                 onChange={updateFullName}
                 value={fullName}
                 required
