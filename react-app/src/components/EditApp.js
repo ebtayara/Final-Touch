@@ -55,7 +55,7 @@ const EditApp = () => {
     history.push('/')
   };
   // console.log('%%%%%%%%%%', fullName)
-  //I want to find a way to have it maintain the previous appointment data in the form fields
+
   return (
     <div className='form_outer_container'>
       <div className='form_inner_container'>
@@ -68,6 +68,7 @@ const EditApp = () => {
               placeholder='Fist and Last Name'
               onChange={updateFullName}
               value={fullName}
+              required
             ></input>
           </div>
           <div className='email_field'>
@@ -78,6 +79,7 @@ const EditApp = () => {
               placeholder='email@ESP.domain'
               onChange={updateEmail}
               value={email}
+              required
             ></input>
           </div>
           <div className='address_field'>
@@ -88,6 +90,7 @@ const EditApp = () => {
               placeholder='Street, City and State'
               onChange={updateAddress}
               value={address}
+              required
             ></input>
           </div>
           <div className='number_field'>
@@ -98,6 +101,7 @@ const EditApp = () => {
               placeholder='Phone Number'
               onChange={updateNumber}
               value={phoneNumber}
+              required
             ></input>
           </div>
           <div className='submit_btn'>
