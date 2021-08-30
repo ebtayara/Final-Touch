@@ -60,7 +60,8 @@ return (
               We will contact you at {appointment.phone_number} if anything changes.
               </div> */}
               Name: {appointment.full_name}.{" "} Email: {appointment.email}.
-              {" "} Address: {appointment.address}.{" "} Phone: {appointment.phone_number}__
+              {" "} Address: {appointment.address}.{" "} Phone: {appointment.phone_number}
+              <i class="fas fa-arrow-circle-right"></i>
             {/* <div className='leave_review_container'>
               <div className='leave_review'> */}
               <NavLink onClick={() => dispatch(appointmentData(appointment))}to={`/reviews/appointments/${appointment.id}`} exact={true} activeClassName='active' className="review_btn">
