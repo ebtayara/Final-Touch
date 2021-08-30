@@ -62,7 +62,7 @@ useEffect(() => {
               <button type='submit' onClick={async() => {
                 await dispatch(removeReview(review.id))
                 // window.location.reload()
-              }} className='delete_review'>Delete</button>
+              }} className='delete_review'><i class="fas fa-trash"></i></button>
               </div>
             </div>
             }
