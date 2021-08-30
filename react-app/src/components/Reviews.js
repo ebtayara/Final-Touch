@@ -13,7 +13,7 @@ const reviews = useSelector(state => Object.values(state.review));
 // const [reviews, setReviews] = useState();
 const [text_field, setBody] = useState("");
 const [showForm, setShowForm] = useState(false);
-const [formId, ] = useState(null);
+const [formId, setFormId] = useState(null);
 const dispatch = useDispatch();
 
 // //get user specific reviews - this works
@@ -51,7 +51,9 @@ const updateReview = async (review_id, text_field, e) => {
   setShowForm(false);
 };
 
-const openForm = () => {
+const openForm = (text_field, id) => {
+  setBody(text_field);
+  setFormId(id);
   setShowForm(!showForm);
 };
 
@@ -81,12 +83,12 @@ const openForm = () => {
               <div className="edit_btn_container">
               <button
                 className="edit_btn"
-                onClick={() => openForm(review)}
+                onClick={() => openForm(review.text_field, review.id)}
               >
                 <i className="fas fa-edit"></i>
               </button>
               </div>
-              {showForm && (
+              {showForm && review.id === formId && (
               <form
                 onSubmit={(e) => updateReview(review.id, text_field, e)}
                 key={review.id}
