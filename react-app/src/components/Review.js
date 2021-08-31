@@ -80,7 +80,7 @@ const Review = () => {
   }, [dispatch, currentReview, formId, id, user.review]);
 
   const openForm = () => {
-    setShowForm(true);
+    setShowForm(!showForm);
   };
 
   if (!user) history.push("/");
