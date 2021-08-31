@@ -20,6 +20,8 @@
 .reviews {
   display: flex;
   justify-content: center;
+  font-family: system-ui;
+  font-weight: bold;
 }
 
 .reviews_ul {

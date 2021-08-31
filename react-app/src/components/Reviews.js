@@ -75,16 +75,16 @@ const openForm = (text_field, id) => {
             {user && user.id === review.user_id &&
             <div>
               <div className='delete_review_container'>
-              <button type='submit' onClick={async() => {
-                await dispatch(removeReview(review.id))
-                // window.location.reload()
-              }} className='delete_review'><i class="fas fa-trash"></i></button>
               <button
                 className="edit_btn"
                 onClick={() => openForm(review.text_field, review.id)}
               >
                 <i className="fas fa-edit"></i>
               </button>
+              <button type='submit' onClick={async() => {
+                await dispatch(removeReview(review.id))
+                // window.location.reload()
+              }} className='delete_review'><i class="fas fa-trash"></i></button>
               </div>
               {/* <div className="edit_btn_container">
               </div> */}
