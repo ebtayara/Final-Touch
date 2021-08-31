@@ -152,7 +152,7 @@ const Review = () => {
                 ></textarea>
               </div>
               <div>
-                <button className="submitButton" type="submit">
+                <button className="submit_button" type="submit">
                   Submit
                 </button>
               </div>

@@ -20,3 +20,22 @@
 	margin: 1em;
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
 }
+
+.submit_button {
+  color: black;
+  text-decoration: none;
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  min-width: 144px;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: 6em;
+}
