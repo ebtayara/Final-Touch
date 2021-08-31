@@ -120,7 +120,7 @@ const Review = () => {
                   onChange={(e) => setBody(e.target.value)}
                 />
                 <button
-                  className="edit_review"
+                  className="edit_review_form"
                   type="submit"
                   onSubmit={(e) =>
                     updateReview(currentReview.id, text_field, e)
@@ -129,7 +129,7 @@ const Review = () => {
                   submit
                 </button>
                 <button
-                  className="delete_review"
+                  className="delete_review_form"
                   onClick={() => deleteReview(currentReview.id)}
                 >
                   delete

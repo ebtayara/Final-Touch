@@ -45,3 +45,46 @@
   font-weight: bold;
   margin-left: 1em;
 }
+
+.review {
+  font-family: system-ui;
+  margin-left: 1em;
+}
+
+.edit_btn {
+  margin-left: 1em;
+}
+
+.edit_review_form {
+  color: black;
+  text-decoration: none;
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.delete_review_form {
+  color: black;
+  text-decoration: none;
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+}
