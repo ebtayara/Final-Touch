@@ -80,7 +80,7 @@ const Review = () => {
   }, [dispatch, currentReview, formId, id, user.review]);
 
   const openForm = () => {
-    setShowForm(true);
+    setShowForm(!showForm);
   };
 
   if (!user) history.push("/");
@@ -108,8 +108,9 @@ const Review = () => {
                 <i className="fas fa-edit"></i>
               </button>
             </div>
+            <div>
             {showForm && currentReview.id === formId ? (
-              <form
+              <form className='form_styling'
                 onSubmit={(e) => updateReview(currentReview.id, text_field, e)}
                 key={currentReview.id}
               >
@@ -135,12 +136,13 @@ const Review = () => {
                 </button>
               </form>
             ) : null}
+            </div>
           </div>
         ) : null}
         <div>
           {!currentReview && (
             <form onSubmit={userReview}>
-              <div>
+              <div className='form_styling'>
                 <textarea
                   className="textArea"
                   value={newReview}
@@ -150,7 +152,7 @@ const Review = () => {
                 ></textarea>
               </div>
               <div>
-                <button className="submitButton" type="submit">
+                <button className="submit_button" type="submit">
                   Submit
                 </button>
               </div>
