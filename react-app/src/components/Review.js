@@ -88,7 +88,7 @@ const Review = () => {
   return (
     <div className="reviews_outer_container">
       <div className="review_body">
-        <div>
+        <div className='review_form_errors'>
           {errors &&
             errors.map((error, i) => (
               <div key={i}>{error.slice(error.indexOf(":") + 1)}</div>
