@@ -44,9 +44,9 @@ return (
   <>
   <div className='apps_body'>
     <div>
-      {/* <div className='app_title'>
-        <h1>Appointments</h1>
-      </div> */}
+      <div className='app_title'>
+        <h2>Appointment details are viewable below. You can cancel at anytime.</h2>
+      </div>
     <div className='appointments_container'>
       <div className='appointments'>
         {user &&
