@@ -25,7 +25,32 @@
 }
 
 .reviews_ul {
-  list-style-type: circle;
+  list-style-type: none;
   font-size: 18px;
   font-weight: bold;
+}
+
+.edit_review {
+  color: black;
+  text-decoration: none;
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* .list_style_icon {
+  padding: 1px;
+} */
+
+.fab {
+  padding: 5px;
 }
