@@ -88,7 +88,7 @@ const Review = () => {
   return (
     <div className="reviews_outer_container">
       <div className="review_body">
-        <div>
+        <div className='review_form_errors'>
           {errors &&
             errors.map((error, i) => (
               <div key={i}>{error.slice(error.indexOf(":") + 1)}</div>
@@ -120,7 +120,7 @@ const Review = () => {
                   onChange={(e) => setBody(e.target.value)}
                 />
                 <button
-                  className="edit_review"
+                  className="edit_review_form"
                   type="submit"
                   onSubmit={(e) =>
                     updateReview(currentReview.id, text_field, e)
@@ -129,7 +129,7 @@ const Review = () => {
                   submit
                 </button>
                 <button
-                  className="delete_review"
+                  className="delete_review_form"
                   onClick={() => deleteReview(currentReview.id)}
                 >
                   delete

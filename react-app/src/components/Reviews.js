@@ -69,27 +69,27 @@ const openForm = (text_field, id) => {
         <ul className='reviews_ul'>
           {reviews && reviews.map((review, i) => (
             <div key={i}>
-            <li>
+            <li><i className="fab fa-wpforms"></i>
               {review.text_field}
             </li>
             {user && user.id === review.user_id &&
             <div>
               <div className='delete_review_container'>
-              <button type='submit' onClick={async() => {
-                await dispatch(removeReview(review.id))
-                // window.location.reload()
-              }} className='delete_review'><i class="fas fa-trash"></i></button>
               <button
                 className="edit_btn"
                 onClick={() => openForm(review.text_field, review.id)}
               >
                 <i className="fas fa-edit"></i>
               </button>
+              <button type='submit' onClick={async() => {
+                await dispatch(removeReview(review.id))
+                // window.location.reload()
+              }} className='delete_review'><i className="fas fa-trash"></i></button>
               </div>
               {/* <div className="edit_btn_container">
               </div> */}
               {showForm && review.id === formId && (
-              <form
+              <form className='form_styling'
                 onSubmit={(e) => updateReview(review.id, text_field, e)}
                 key={review.id}
               >
