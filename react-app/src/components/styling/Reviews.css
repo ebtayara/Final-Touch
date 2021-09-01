@@ -54,3 +54,11 @@
 .fab {
   padding: 5px;
 }
+
+.fas {
+  color: orangered;
+}
+
+.delete_review_container {
+  margin-left: .7em;
+}
