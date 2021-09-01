@@ -21,7 +21,7 @@
 }
 
 .name_field {
-  color: red;
+  color: orangered;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -33,7 +33,7 @@
 }
 
 .email_field {
-  color: red;
+  color: orangered;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -45,7 +45,7 @@
 }
 
 .address_field {
-  color: red;
+  color: orangered;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -57,7 +57,7 @@
 }
 
 .number_field {
-  color: red;
+  color: orangered;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -121,7 +121,7 @@
   font-size: 18px;
   line-height: 25px;
   border-radius: 20%;
-  color: red;
+  color: orangered;
   font-weight: bold;
   width: fit-content;
   height: fit-content;
