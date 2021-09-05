@@ -53,7 +53,7 @@ const Appointment = () => {
           </div>
           </div>
           <div>
-          You can also dial 'insert business # here' to have us schedule an in-house visit
+          You can also dial 5099475433 to have us schedule an in-house visit
           to {appointment?.address}.
           </div>
           <div className='changes_outer_container'>
