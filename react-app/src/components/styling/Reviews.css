@@ -6,11 +6,12 @@
   background-attachment: fixed;
   width: 100%;
   margin: 0px;
+  flex-grow: 1;
 }
 
-.reviews_container {
+/* .reviews_container {
 
-}
+} */
 
 .reviews_title {
   display: flex;

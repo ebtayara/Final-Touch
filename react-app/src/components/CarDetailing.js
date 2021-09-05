@@ -147,7 +147,7 @@ const CarDetailing = () => {
               ))}
             </div>
             <div>
-              {/* <label>Full Name</label> */}
+              <label>Full Name</label>
               <input
                 className="name_field"
                 type="text"
@@ -159,7 +159,7 @@ const CarDetailing = () => {
               ></input>
             </div>
             <div>
-              {/* <label htmlFor='email'>Email</label> */}
+              <label htmlFor='email'>Email</label>
               <input
                 className="email_field"
                 type="text"
@@ -171,7 +171,7 @@ const CarDetailing = () => {
               ></input>
             </div>
             <div>
-              {/* <label>Address</label> */}
+              <label>Address</label>
               <input
                 className="address_field"
                 type="text"
@@ -183,7 +183,7 @@ const CarDetailing = () => {
               ></input>
             </div>
             <div>
-              {/* <label>Phone Number</label> */}
+              <label>Phone Number</label>
               <input
                 className="number_field"
                 type="number"
