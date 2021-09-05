@@ -9,6 +9,7 @@
   margin: 0px;
   justify-content: center;
   margin-bottom: 3.8em;
+  flex-grow: 1;
 }
 
 .form_inner_container {

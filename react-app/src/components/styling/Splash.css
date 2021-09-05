@@ -6,6 +6,7 @@
   background-attachment: fixed;
   width: 100%;
   margin: 0px;
+  flex-grow: 1;
 }
 
 .title_outer_container {
