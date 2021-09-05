@@ -61,7 +61,7 @@ const EditApp = () => {
       <div className='form_inner_container'>
         <form onSubmit={onSubmit}>
           <div className='name_field'>
-            {/* <label>Full Name</label> */}
+            <label>Full Name</label>
             <input
               type='text'
               name='full_name'
@@ -72,7 +72,7 @@ const EditApp = () => {
             ></input>
           </div>
           <div className='email_field'>
-            {/* <label htmlFor='email'>Email</label> */}
+            <label htmlFor='email'>Email</label>
             <input
               type='text'
               name='email'
@@ -83,7 +83,7 @@ const EditApp = () => {
             ></input>
           </div>
           <div className='address_field'>
-            {/* <label>Address</label> */}
+            <label>Address</label>
             <input
               type='text'
               name='address'
@@ -94,7 +94,7 @@ const EditApp = () => {
             ></input>
           </div>
           <div className='number_field'>
-            {/* <label>Phone Number</label> */}
+            <label>Phone Number</label>
             <input
               type='integer'
               name='phone_number'
