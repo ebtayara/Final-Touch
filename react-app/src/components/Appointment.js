@@ -48,7 +48,7 @@ const Appointment = () => {
           has been booked, and a confirmation will eventually be programmed to be
           sent to {appointment?.email}.
           <div>
-          Likewise, a text reminder will also eventually
+          Likewise, a text reminder will eventually
           be sent to {appointment?.phone_number} an hour beforehand.
           </div>
           </div>
@@ -58,7 +58,7 @@ const Appointment = () => {
           </div>
           <div className='changes_outer_container'>
             <div className='changes_inner_container'>
-              <div>
+              <div className='changes_container'>
               <NavLink to={`/edit/${id}`} exact={true} activeClassName='active' className='appointment_edit'>
                 Edit
               </NavLink>
