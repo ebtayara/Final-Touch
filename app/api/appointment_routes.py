@@ -45,7 +45,7 @@ def create_appointment():
             address = form.data['address'],
             phone_number = form.data['phone_number'],
             user_id = current_user.id
-      )
+    )
         db.session.add(appointment)
         db.session.commit()
         return appointment.to_dict()
