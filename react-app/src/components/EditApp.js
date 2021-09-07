@@ -104,8 +104,8 @@ const EditApp = () => {
               required
             ></input>
           </div>
-          <div className='submit_btn'>
-            <button type='submit'>Submit</button>
+          <div className='submit_btn_container'>
+            <button className='submit_btn' type='submit'>Submit</button>
           </div>
         </form>
       </div>
