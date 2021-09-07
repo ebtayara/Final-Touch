@@ -18,7 +18,7 @@
 }
 
 .name_field {
-  color: orangered;
+  color: black;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -30,7 +30,7 @@
 }
 
 .email_field {
-  color: orangered;
+  color: black;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -42,7 +42,7 @@
 }
 
 .address_field {
-  color: orangered;
+  color: black;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -54,7 +54,7 @@
 }
 
 .number_field {
-  color: orangered;
+  color: black;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -135,4 +135,9 @@
   display: flex;
   justify-content: center;
   color: gold;
+}
+
+.form_labels {
+  color: orangered;
+  font-weight: bold;
 }
