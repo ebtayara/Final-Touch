@@ -57,11 +57,11 @@ const EditApp = () => {
   // console.log('%%%%%%%%%%', fullName)
 
   return (
-    <div className='form_outer_container'>
-      <div className='form_inner_container'>
+    <div className='edit_form_outer_container'>
+      <div className='edit_form_inner_container'>
         <form onSubmit={onSubmit}>
           <div className='name_field'>
-            <label>Full Name</label>
+            <label className='form_labels'>Full Name</label>
             <input
               type='text'
               name='full_name'
@@ -72,7 +72,7 @@ const EditApp = () => {
             ></input>
           </div>
           <div className='email_field'>
-            <label htmlFor='email'>Email</label>
+            <label className='form_labels' htmlFor='email'>Email</label>
             <input
               type='text'
               name='email'
@@ -83,7 +83,7 @@ const EditApp = () => {
             ></input>
           </div>
           <div className='address_field'>
-            <label>Address</label>
+            <label className='form_labels'>Address</label>
             <input
               type='text'
               name='address'
@@ -94,7 +94,7 @@ const EditApp = () => {
             ></input>
           </div>
           <div className='number_field'>
-            <label>Phone Number</label>
+            <label className='form_labels'>Phone Number</label>
             <input
               type='integer'
               name='phone_number'

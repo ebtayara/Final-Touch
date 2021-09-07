@@ -54,6 +54,7 @@
 }
 
 .app_title {
+  margin-top: 1em;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -62,10 +63,10 @@
   font-size: 18px;
   line-height: 25px;
   border-radius: 20%;
-  color: black;
+  color: white;
   font-weight: bold;
   width: fit-content;
   height: fit-content;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(2, 0, 0, 0.7);
   margin-left: 2em;
 }

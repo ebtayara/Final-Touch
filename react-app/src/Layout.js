@@ -35,7 +35,8 @@ const BACKGROUND_IMAGES_PER_URL = {
   "/appointments/:id": "https://www.motortrend.com/uploads/sites/5/2021/06/011-fast-and-furious-ford-escort-rs1600.jpg",
   "/reviews/appointments/:id": "https://cdn.pocket-lint.com/r/s/970x/assets/images/148310-tv-feature-what-order-should-you-watch-the-fast-and-furious-films-in-image1-rzgajwfo2x.jpg",
   "/reviews": "https://storage.googleapis.com/wordpress-www-vendasta/Top-14-Review-Sites-fb.jpg",
-  "/home": "https://images.squarespace-cdn.com/content/v1/5a7fb700d74cffd8f02428bf/1549039763632-Z29HWK0B1MPUE3YUKNXC/What-is-Mobile-Detailing-min.png?format=750w"
+  "/home": "https://images.squarespace-cdn.com/content/v1/5a7fb700d74cffd8f02428bf/1549039763632-Z29HWK0B1MPUE3YUKNXC/What-is-Mobile-Detailing-min.png?format=750w",
+  "/edit/:id":"https://blogs.constantcontact.com/wp-content/uploads/2021/01/Social-1-14.jpg"
 };
 /** handles background image per url */
 function MainWithBackgroundImage({ children }) {
