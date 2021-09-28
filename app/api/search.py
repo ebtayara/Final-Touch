@@ -10,5 +10,5 @@ search_route = Blueprint('search', __name__)
 def get_services():
     all_services = Service.query.all()
     data = all_services
-    result = [service_type.to_dict() for servie_type in data]
+    result = [service_type.to_dict() for service_type in data]
     return {'services': result}
