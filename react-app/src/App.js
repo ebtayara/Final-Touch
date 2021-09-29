@@ -15,6 +15,7 @@ import Appointments from "./components/Appointments";
 import Review from "./components/Review";
 import Reviews from "./components/Reviews";
 import NotFound from "./components/NotFound";
+import CustomService from "./components/CustomService"
 import { authenticate } from "./store/session";
 import { Layout } from "./Layout";
 
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <Route path="/car-detailing" exact={true}>
             <CarDetailing />
+          </Route>
+          <Route path="/custom-service" exact={true}>
+            <CustomService />
           </Route>
           <Route path="/appointments/:id" exact={true}>
             <Appointment />
