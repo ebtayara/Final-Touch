@@ -6,11 +6,14 @@ class Service(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     service_type = db.Column(db.String, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    app_id = db.Column(db.Integer, db.ForeignKey('appointments.id'), nullable=False)
     user = db.relationship("User", back_populates="service")
+    appointment = db.relationship("Appointment", back_populates="service")
 
     def to_dict(self):
         return {
             'id': self.id,
             'service_type': self.service_type,
-            'user_id': self.user_id
+            'user_id': self.user_id,
+            'app_id': self.app_id
         }

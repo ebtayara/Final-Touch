@@ -11,6 +11,8 @@ class Appointment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     user = db.relationship("User", back_populates="appointment")
     review = db.relationship("Review", cascade="all, delete-orphan", back_populates="appointment")
+    service = db.relationship("Service", back_populates="appointment")
+
 
     def to_dict(self):
         return {
