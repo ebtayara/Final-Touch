@@ -15,7 +15,7 @@ import Appointments from "./components/Appointments";
 import Review from "./components/Review";
 import Reviews from "./components/Reviews";
 import NotFound from "./components/NotFound";
-import CustomService from "./components/CustomService"
+import CustomServiceOption from "./components/CustomService"
 import { authenticate } from "./store/session";
 import { Layout } from "./Layout";
 
